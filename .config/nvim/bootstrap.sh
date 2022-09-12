@@ -3,7 +3,7 @@ pushd /tmp
 
 # install prerequisites
 curl -fsSL https://deb.nodesource.com/setup_lts.x > node_setup_lts.sh
-bash node_setup_lts.sh
+sudo bash node_setup_lts.sh
 sudo apt-get install -y nodejs
 
 # install newest neovim
