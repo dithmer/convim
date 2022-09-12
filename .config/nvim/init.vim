@@ -115,8 +115,10 @@ autocmd FileType vue,html,css EmmetInstall
 
 " Open FZF on CTRL-d
 nnoremap <C-d> :Files<CR>
+" Open FZF buffers on ctrl-b
+nnoremap <C-b> :Buffers<CR>
 
-set updatetime=300
+set updatetime=100
 set signcolumn=yes
 
 " Use <c-space> to trigger completion.
@@ -126,4 +128,25 @@ else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
 
+" fugitive shortcuts
+nnoremap <leader>ga :Git add %<CR>
+nnoremap <leader>gc :Git commit<CR>
+nnoremap <leader>gp :Git push<CR>
 
+" Go File settings
+let g:go_auto_type_info = 1
+let g:go_auto_sameids = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_types = 1
+
+let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
+let g:go_metalinter_autosave = 1
+let g:go_metalinter_autosave_enabled = ['vet', 'golint']
+let g:go_metalinter_deadline = "5s"
+
+" Coc Format on ctrl-f
+nnoremap <silent> <C-f> :call CocAction('format')<CR>
