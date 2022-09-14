@@ -9,6 +9,14 @@ Plug 'tpope/vim-fugitive'
 Plug 'preservim/nerdtree'
 " Dracula Theme
 Plug 'dracula/vim', { 'as': 'dracula' }
+" Truezen
+Plug 'Pocco81/true-zen.nvim'
+lua << EOF
+	require("true-zen").setup {
+		-- your config goes here
+		-- or just leave it empty :)
+	}
+EOF
 
 " vim-airline
 Plug 'vim-airline/vim-airline'
@@ -84,8 +92,15 @@ nnoremap <leader>sv :source $MYVIMRC<CR>
 
 nnoremap <leader>pi :PlugInstall<CR>
 
+" Truezen shortcuts
+nnoremap <leader>za :TZAtaraxis<CR>
+nnoremap <leader>zm :TZMinimalist<CR>
+nnoremap <leader>zf :TZFocus<CR>
+nnoremap <leader>zn :TZNarrow<CR>
+vnoremap <leader>zr :'<,'>TZNarrow<CR>
+
 " terminal emulation
-nnoremap <silent> <leader>sh :terminal<CR>
+nnoremap <silent> <leader>sh :bel 8split term://bash<CR>
 
 nnoremap <leader>q :q<CR>
 nnoremap <leader>w :w<CR>
@@ -104,10 +119,9 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 let g:NERDTreeIgnore=['node_modules','\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
-"
-"
+
 " auto update plugins on startup
-autocmd VimEnter * PlugUpdate --sync | bd
+" autocmd VimEnter * PlugUpdate --sync | bd
 
 let g:user_emmet_leader_key='<C-Z>'
 let g:user_emmet_install_global = 0

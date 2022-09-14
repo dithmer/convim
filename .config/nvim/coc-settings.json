@@ -1,0 +1,5 @@
+{
+    "volar.takeover.enabled": true,
+    "editor.formatOnSave": true,
+    "coc.preferences.formatOnSaveFiletypes": ["css", "markdown", "vue", "html", "javascript", "typescript", "json", "scss", "less", "stylus", "postcss", "sass", "styl"],
+}
