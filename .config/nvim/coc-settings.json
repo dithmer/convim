@@ -21,7 +21,7 @@
   },
   "languageserver": {
     "golang": {
-      "command": "/home/dithmer/go/bin/gopls",
+      "command": "gopls",
       "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
       "filetypes": ["go"],
       "initializationOptions": {
