@@ -14,17 +14,32 @@ require("todo-comments").setup()
 require("telescope").load_extension("command_center")
 
 local command_center = require("command_center")
-local noremap = {noremap = true}
-local silent_noremap = {noremap = true, silent = true}
+local noremap = { noremap = true }
+local silent_noremap = { noremap = true, silent = true }
 
 -- open command_center on F1
 vim.api.nvim_set_keymap("n", "<c-P>", ":Telescope command_center<CR>", silent_noremap)
 
 -- command_center keymaps
 command_center.add({
-  {
-    desc = "Git add current file",
-    cmd = "<CMD>Git add %<CR>",
-    keys = {},
-  }
+	{
+		desc = "Git add current file",
+		cmd = "<CMD>Git add %<CR>",
+		keys = {},
+	},
+	{
+		desc = "Git commit",
+		cmd = "<CMD>Git commit<CR>",
+		keys = {},
+	},
+	{
+		desc = "Git push",
+		cmd = "<CMD>Git push<CR>",
+		keys = {},
+	},
+	{
+		desc = "npm run dev",
+		cmd = "<CMD>NpmRun dev<CR>",
+		keys = {},
+	},
 })

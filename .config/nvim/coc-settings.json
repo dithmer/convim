@@ -14,7 +14,9 @@
     "stylus",
     "postcss",
     "sass",
-    "styl"
+    "styl",
+    "lua",
+    "sh"
   ],
   "yaml.schemas": {
     "https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json": ".gitlab-ci.yml"
@@ -28,6 +30,19 @@
         "usePlaceholders": true,
         "completeUnimported": true
       }
+    }
+  },
+  "diagnostic-languageserver.filetypes": {
+    "sh": "shellcheck"
+  },
+  "diagnostic-languageserver.formatFiletypes": {
+    "lua": "stylua",
+    "sh": "shfmt"
+  },
+  "diagnostic-languageserver.formatters": {
+    "stylua": {
+      "command": "stylua",
+      "args": ["-"]
     }
   }
 }
