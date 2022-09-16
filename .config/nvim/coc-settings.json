@@ -1,5 +1,33 @@
 {
-    "volar.takeover.enabled": true,
-    "editor.formatOnSave": true,
-    "coc.preferences.formatOnSaveFiletypes": ["css", "markdown", "vue", "html", "javascript", "typescript", "json", "scss", "less", "stylus", "postcss", "sass", "styl"],
+  "volar.takeover.enabled": true,
+  "editor.formatOnSave": true,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "markdown",
+    "vue",
+    "html",
+    "javascript",
+    "typescript",
+    "json",
+    "scss",
+    "less",
+    "stylus",
+    "postcss",
+    "sass",
+    "styl"
+  ],
+  "yaml.schemas": {
+    "https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json": ".gitlab-ci.yml"
+  },
+  "languageserver": {
+    "golang": {
+      "command": "/home/dithmer/go/bin/gopls",
+      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["go"],
+      "initializationOptions": {
+        "usePlaceholders": true,
+        "completeUnimported": true
+      }
+    }
+  }
 }

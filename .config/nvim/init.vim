@@ -1,44 +1,34 @@
 call plug#begin()
-" Github CoPilot
-Plug 'github/copilot.vim'
+" nvim-tree
+Plug 'kyazdani42/nvim-web-devicons' " optional, for file icons
+Plug 'kyazdani42/nvim-tree.lua'
+
+" vim-surround
+Plug 'tpope/vim-surround'
+
+" Dracula Theme
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'vim-airline/vim-airline'
+
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+Plug 'folke/todo-comments.nvim'
+Plug 'Pocco81/true-zen.nvim'
+Plug 'FeiyouG/command_center.nvim'
 
 " fugitive
 Plug 'tpope/vim-fugitive'
 
-" NerdTREE
-Plug 'preservim/nerdtree'
-" Dracula Theme
-Plug 'dracula/vim', { 'as': 'dracula' }
-" Truezen
-Plug 'Pocco81/true-zen.nvim'
-lua << EOF
-	require("true-zen").setup {
-		-- your config goes here
-		-- or just leave it empty :)
-	}
-EOF
-
-" vim-airline
-Plug 'vim-airline/vim-airline'
-
-" fzf
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-
 " coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
+" Github CoPilot
+Plug 'github/copilot.vim'
 " emmet
 Plug 'mattn/emmet-vim'
-" vim-surround
-Plug 'tpope/vim-surround'
-
 " vim npm plugin
 Plug 'neoclide/npm.nvim', {'do' : 'npm install'}
-
 " vim-go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-
 call plug#end()
 
 " let g:copilot_no_tab_map = v:true
@@ -69,6 +59,9 @@ set clipboard=unnamedplus
 filetype plugin on
 set cursorline
 set ttyfast
+set updatetime=100
+set signcolumn=yes
+set autowrite
 
 inoremap jk <Esc>
 
@@ -77,6 +70,10 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+" resize shortcuts
+nnoremap <A-m> :resize -2<CR>
+nnoremap <A-n> :resize +2<CR>
 
 " New tab on n
 nnoremap <silent> nt :tabnew<CR>
@@ -106,34 +103,24 @@ nnoremap <leader>q :q<CR>
 nnoremap <leader>w :w<CR>
 
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
-nnoremap <leader>f :NERDTreeFind<CR>
-" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
-autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
-    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
-" Open the existing NERDTree on each new tab.
-autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
-" Exit Vim if NERDTree is the only window remaining in the only tab.
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-" Close the tab if NERDTree is the only window remaining in it.
-autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
-let g:NERDTreeIgnore=['node_modules','\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
-
-" auto update plugins on startup
-" autocmd VimEnter * PlugUpdate --sync | bd
+" Find current file in nvim-tree
+nnoremap <leader>f :NvimTreeFindFile<CR>
 
 let g:user_emmet_leader_key='<C-Z>'
 let g:user_emmet_install_global = 0
 autocmd FileType vue,html,css EmmetInstall
 
-" Open FZF on CTRL-d
-nnoremap <C-d> :Files<CR>
-" Open FZF buffers on ctrl-b
-nnoremap <C-b> :Buffers<CR>
-
-set updatetime=100
-set signcolumn=yes
+" Open telescrop on CTRL-d
+nnoremap <C-d> :Telescope find_files find_command=rg,--ignore,--hidden,--files<CR>
+" Open telescope buffers on ctrl-b
+nnoremap <C-b> :Telescope buffers<CR>
+" Open telescope live grep on ctrl-g
+nnoremap <C-g> :Telescope live_grep<CR>
+" Open telescope commands on ctrl-s
+nnoremap <C-s> :Telescope commands<CR>
+" Open telescope quickfix on ctrl-q
+nnoremap <C-q> :Telescope quickfix<CR>
 
 " Use <c-space> to trigger completion.
 if has('nvim')
@@ -157,10 +144,16 @@ let g:go_highlight_operators = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_types = 1
 
-let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
+let g:go_metalinter_command = 'golangci-lint'
+let g:go_metalinter_enabled = ['vet', 'revive', 'errcheck', 'staticcheck', 'gosimple', 'unused']
 let g:go_metalinter_autosave = 1
-let g:go_metalinter_autosave_enabled = ['vet', 'golint']
+let g:go_metalinter_autosave_enabled = ['vet', 'revive', 'errcheck', 'staticcheck', 'gosimple', 'unused']
 let g:go_metalinter_deadline = "5s"
+
+let g:go_list_type = "quickfix"
 
 " Coc Format on ctrl-f
 nnoremap <silent> <C-f> :call CocAction('format')<CR>
+
+" load lua config
+lua require('config')
