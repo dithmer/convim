@@ -42,4 +42,25 @@ command_center.add({
 		cmd = "<CMD>NpmRun dev<CR>",
 		keys = {},
 	},
+	{
+		desc = "source current file",
+		cmd = "<CMD>source %<CR>",
+		keys = {},
+	},
 })
+
+-- run command in background
+local Job = require("plenary.job")
+
+-- run npm run dev with plenary job
+local function NpmRunAsync(cmd)
+	local job = Job:new({
+		command = "npm",
+		args = { "run", cmd },
+	})
+	job:start()
+end
+
+return {
+	NpmRunAsync = NpmRunAsync,
+}

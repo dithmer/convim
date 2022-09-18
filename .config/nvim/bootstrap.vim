@@ -4,5 +4,4 @@ CocInstall @yaegassy/coc-volar-tools
 CocInstall @yaegassy/coc-tailwindcss3
 CocInstall coc-prettier
 CocInstall coc-yaml
-CocInstall coc-lua
 CocInstall coc-sh

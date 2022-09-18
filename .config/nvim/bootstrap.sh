@@ -38,6 +38,15 @@ install_shfmt() {
 	sudo chmod +x /usr/local/bin/shfmt
 }
 
+install_lua_language_server() {
+	wget https://github.com/sumneko/lua-language-server/releases/download/3.5.6/lua-language-server-3.5.6-linux-x64.tar.gz
+	sudo rm -rf /opt/lua-language-server
+	sudo mkdir -p /opt/lua-language-server
+	sudo tar -xvf lua-language-server-3.5.6-linux-x64.tar.gz -C /opt/lua-language-server
+	USER=$(whoami)
+	sudo chown -R "$USER:$USER" /opt/lua-language-server
+}
+
 install_shellcheck() {
 	sudo apt-get install -y shellcheck
 }
@@ -52,6 +61,7 @@ pushd /tmp || exit 1
 install_nodejs
 install_golang
 
+install_lua_language_server
 install_shfmt
 install_shellcheck
 install_stylua

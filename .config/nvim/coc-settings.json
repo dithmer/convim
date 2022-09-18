@@ -30,6 +30,18 @@
         "usePlaceholders": true,
         "completeUnimported": true
       }
+    },
+    "lua": {
+      "command": "/opt/lua-language-server/bin/lua-language-server",
+      "args": ["-E", "/opt/lua-language-server/main.lua"],
+      "filetypes": ["lua"],
+      "settings": {
+        "Lua": {
+          "diagnostics": {
+            "globals": ["vim"]
+          }
+        }
+      }
     }
   },
   "diagnostic-languageserver.filetypes": {

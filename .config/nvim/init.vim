@@ -106,6 +106,8 @@ autocmd StdinReadPre * let s:std_in=1
 
 " Find current file in nvim-tree
 nnoremap <leader>f :NvimTreeFindFile<CR>
+" Open nvim-tree
+nnoremap <leader>o :NvimTreeToggle<CR>
 
 let g:user_emmet_leader_key='<C-Z>'
 let g:user_emmet_install_global = 0
@@ -121,6 +123,8 @@ nnoremap <C-g> :Telescope live_grep<CR>
 nnoremap <C-s> :Telescope commands<CR>
 " Open telescope quickfix on ctrl-q
 nnoremap <C-q> :Telescope quickfix<CR>
+" Open telescope man on ctrl-m
+nnoremap <C-y> :Telescope help_tags<CR>
 
 " Use <c-space> to trigger completion.
 if has('nvim')
@@ -128,6 +132,11 @@ if has('nvim')
 else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
+
+" use gd to coc-defintion
+nnoremap <silent> gd <Plug>(coc-definition)
+" use rn to coc-rename
+nnoremap <silent> rn <Plug>(coc-rename)
 
 " fugitive shortcuts
 nnoremap <leader>ga :Git add %<CR>
@@ -152,8 +161,12 @@ let g:go_metalinter_deadline = "5s"
 
 let g:go_list_type = "quickfix"
 
+let g:launcher_autostart = 1
+
 " Coc Format on ctrl-f
 nnoremap <silent> <C-f> :call CocAction('format')<CR>
 
 " load lua config
 lua require('config')
+
+command! CMDS lua require('config').NpmRunAsync()
