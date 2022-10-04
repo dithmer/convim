@@ -1,4 +1,7 @@
 call plug#begin()
+" Native LSP
+Plug 'neovim/nvim-lspconfig'
+
 " nvim-tree
 Plug 'kyazdani42/nvim-web-devicons' " optional, for file icons
 Plug 'kyazdani42/nvim-tree.lua'
@@ -19,16 +22,15 @@ Plug 'FeiyouG/command_center.nvim'
 " fugitive
 Plug 'tpope/vim-fugitive'
 
-" coc
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Github CoPilot
 Plug 'github/copilot.vim'
 " emmet
 Plug 'mattn/emmet-vim'
 " vim npm plugin
 Plug 'neoclide/npm.nvim', {'do' : 'npm install'}
+
 " vim-go
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 call plug#end()
 
 " let g:copilot_no_tab_map = v:true
@@ -126,45 +128,10 @@ nnoremap <C-q> :Telescope quickfix<CR>
 " Open telescope man on ctrl-m
 nnoremap <C-y> :Telescope help_tags<CR>
 
-" Use <c-space> to trigger completion.
-if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
-else
-  inoremap <silent><expr> <c-@> coc#refresh()
-endif
-
-" use gd to coc-defintion
-nnoremap <silent> gd <Plug>(coc-definition)
-" use rn to coc-rename
-nnoremap <silent> rn <Plug>(coc-rename)
-
 " fugitive shortcuts
 nnoremap <leader>ga :Git add %<CR>
 nnoremap <leader>gc :Git commit<CR>
 nnoremap <leader>gp :Git push<CR>
-
-" Go File settings
-let g:go_auto_type_info = 1
-let g:go_auto_sameids = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_types = 1
-
-let g:go_metalinter_command = 'golangci-lint'
-let g:go_metalinter_enabled = ['vet', 'revive', 'errcheck', 'staticcheck', 'gosimple', 'unused']
-let g:go_metalinter_autosave = 1
-let g:go_metalinter_autosave_enabled = ['vet', 'revive', 'errcheck', 'staticcheck', 'gosimple', 'unused']
-let g:go_metalinter_deadline = "5s"
-
-let g:go_list_type = "quickfix"
-
-let g:launcher_autostart = 1
-
-" Coc Format on ctrl-f
-nnoremap <silent> <C-f> :call CocAction('format')<CR>
 
 " load lua config
 lua require('config')

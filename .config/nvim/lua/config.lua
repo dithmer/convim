@@ -1,3 +1,14 @@
+-- lsp setup
+local nvim_lsp = require('lspconfig')
+
+nvim_lsp.gopls.setup{
+    on_attach = function() 
+        vim.keymap.set("n", "gd", vim.lsp.buf.definition, {noremap = true})
+        vim.keymap.set("n", "K", vim.lsp.buf.hover, {buffer=0})
+        vim.keymap.set("n", "<leader>dn", vim.lsp.diagnostic.goto_next, {buffer=0})
+    end
+}
+
 -- setup nvim-tree
 require("nvim-tree").setup()
 

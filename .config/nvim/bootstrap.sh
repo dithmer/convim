@@ -51,11 +51,6 @@ install_shellcheck() {
 	sudo apt-get install -y shellcheck
 }
 
-bootstrap_neovim() {
-	nvim --headless +PlugInstall +qall
-	nvim -S bootstrap.vim
-}
-
 cd "$(dirname "$(realpath "$0")")" || return
 pushd /tmp || exit 1
 install_nodejs
@@ -70,4 +65,3 @@ install_neovim
 install_neovim_plug
 
 popd || exit 1
-bootstrap_neovim
