@@ -1,43 +1,4 @@
-call plug#begin()
-" Native LSP
-Plug 'neovim/nvim-lspconfig'
-
-" nvim-tree
-Plug 'kyazdani42/nvim-web-devicons' " optional, for file icons
-Plug 'kyazdani42/nvim-tree.lua'
-
-" vim-surround
-Plug 'tpope/vim-surround'
-
-" Dracula Theme
-Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'vim-airline/vim-airline'
-
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
-Plug 'folke/todo-comments.nvim'
-Plug 'Pocco81/true-zen.nvim'
-Plug 'FeiyouG/command_center.nvim'
-
-" fugitive
-Plug 'tpope/vim-fugitive'
-
-" Github CoPilot
-Plug 'github/copilot.vim'
-" emmet
-Plug 'mattn/emmet-vim'
-" vim npm plugin
-Plug 'neoclide/npm.nvim', {'do' : 'npm install'}
-
-" vim-go
-" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-call plug#end()
-
-" let g:copilot_no_tab_map = v:true
-" imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
-
-" Add return as shortcut for coc completion
-inoremap <silent><expr> <C-J> coc#pum#visible() ? coc#pum#confirm() : "\<C-J>"
+lua require('plugins')
 
 syntax enable
 colorscheme dracula
@@ -64,6 +25,8 @@ set ttyfast
 set updatetime=100
 set signcolumn=yes
 set autowrite
+set timeoutlen=300
+set completeopt=menu,menuone,noselect
 
 inoremap jk <Esc>
 
@@ -111,10 +74,6 @@ nnoremap <leader>f :NvimTreeFindFile<CR>
 " Open nvim-tree
 nnoremap <leader>o :NvimTreeToggle<CR>
 
-let g:user_emmet_leader_key='<C-Z>'
-let g:user_emmet_install_global = 0
-autocmd FileType vue,html,css EmmetInstall
-
 " Open telescrop on CTRL-d
 nnoremap <C-d> :Telescope find_files find_command=rg,--ignore,--hidden,--files<CR>
 " Open telescope buffers on ctrl-b
@@ -135,5 +94,3 @@ nnoremap <leader>gp :Git push<CR>
 
 " load lua config
 lua require('config')
-
-command! CMDS lua require('config').NpmRunAsync()
