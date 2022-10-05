@@ -12,14 +12,15 @@ return require('packer').startup(function(use)
         event = { "VimEnter" },
         config = function()
             vim.defer_fn(function()
-                require("copilot").setup()
-            end, 500)
+                require("copilot").setup {
+                }
+            end, 100)
         end,
     }
 
     use {
         "zbirenbaum/copilot-cmp",
-        after = { "copilot.lua" },
+        after = { "copilot.lua", "nvim-cmp" },
         config = function()
             require("copilot_cmp").setup {
                 method = "getCompletionsCycling",
@@ -31,7 +32,6 @@ return require('packer').startup(function(use)
                     preview = require("copilot_cmp.format").deindent,
                 },
             }
-            print("loaded copilot-cmp")
         end
     }
 
