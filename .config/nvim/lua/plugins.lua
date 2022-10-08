@@ -2,12 +2,19 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
+    use({
+        "aserowy/tmux.nvim",
+        config = function() require("tmux").setup() end
+    })
 
     use 'nvim-treesitter/nvim-treesitter'
 
     use 'neovim/nvim-lspconfig'
 
-    use {
+    use 'github/copilot.vim'
+
+    -- I prefer copilot.vim right now over nvim-cmp
+    --[[ use {
         "zbirenbaum/copilot.lua",
         event = { "VimEnter" },
         config = function()
@@ -33,7 +40,7 @@ return require('packer').startup(function(use)
                 },
             }
         end
-    }
+    }]] --
 
     use 'L3MON4D3/LuaSnip'
     use 'saadparwaiz1/cmp_luasnip'
