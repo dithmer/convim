@@ -27,6 +27,10 @@ nvim_lsp.volar.setup {
     filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json' }
 }
 
+nvim_lsp.tsserver.setup {
+    capabilities = capabilities,
+}
+
 nvim_lsp.sumneko_lua.setup {
     capabilities = capabilities,
     cmd = { "/opt/lua-language-server/bin/lua-language-server" },
@@ -65,6 +69,8 @@ nvim_lsp.tflint.setup {
 -- native lsp format on leader f
 vim.api.nvim_set_keymap("n", "<space>f", ":lua vim.lsp.buf.format()<cr>", silent_noremap)
 
+
+require("luasnip.loaders.from_snipmate").load()
 
 -- setup nvim-cmp
 local cmp = require 'cmp'
