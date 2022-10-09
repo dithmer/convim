@@ -2,7 +2,7 @@ local noremap = { noremap = true }
 local silent_noremap = { noremap = true, silent = true }
 
 -- treesitter setuo
-require('nvim-treesitter.configs').setup{
+require('nvim-treesitter.configs').setup {
     auto_install = true,
     highlight = {
         enable = true,
@@ -24,7 +24,12 @@ nvim_lsp.gopls.setup {
 
 nvim_lsp.volar.setup {
     capabilities = capabilities,
-    filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json' }
+    filetypes = { 'vue' },
+    init_options = {
+        typescript = {
+            tsdk = '/usr/lib/node_modules/typescript/lib',
+        }
+    }
 }
 
 nvim_lsp.tsserver.setup {
@@ -56,14 +61,14 @@ nvim_lsp.sumneko_lua.setup {
 vim.cmd([[autocmd BufRead,BufNewFile *.tf,*.tfvars set filetype=terraform]])
 nvim_lsp.terraformls.setup {
     capabilities = capabilities,
-    filetypes = { 'terraform', 'tf'},
-    cmd = {'terraform-ls', 'serve'}
+    filetypes = { 'terraform', 'tf' },
+    cmd = { 'terraform-ls', 'serve' }
 }
 
 nvim_lsp.tflint.setup {
     capabilities = capabilities,
-    filetypes = { 'terraform', 'tf'},
-    cmd = {'tflint', '--langserver'},
+    filetypes = { 'terraform', 'tf' },
+    cmd = { 'tflint', '--langserver' },
 }
 
 -- native lsp format on leader f
@@ -93,7 +98,7 @@ cmp.setup({
         ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     }),
     sources = cmp.config.sources({
-        { name = 'copilot'},
+        { name = 'copilot' },
         { name = 'nvim_lsp' },
         { name = 'luasnip' }, -- For luasnip users.
     }, {
