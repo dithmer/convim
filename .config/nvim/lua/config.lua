@@ -24,7 +24,7 @@ nvim_lsp.gopls.setup {
 
 nvim_lsp.volar.setup {
     capabilities = capabilities,
-    filetypes = { 'vue' },
+    filetypes = { "html", "vue", "javascript", "javascriptreact", "typescript", "typescriptreact" },
     init_options = {
         typescript = {
             tsdk = '/usr/lib/node_modules/typescript/lib',
