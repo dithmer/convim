@@ -22,6 +22,7 @@ return require('packer').startup(function(use)
 
     use 'nvim-treesitter/nvim-treesitter'
 
+    use 'tjdevries/nlua.nvim'
     use 'neovim/nvim-lspconfig'
 
     use 'github/copilot.vim'

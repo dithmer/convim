@@ -13,18 +13,24 @@ require('nvim-treesitter.configs').setup {
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 local nvim_lsp = require('lspconfig')
 
+local custom_on_attach = function()
+    vim.keymap.set("n", "gd", vim.lsp.buf.definition, { noremap = true })
+    vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = 0 })
+    vim.keymap.set("n", "<leader>dn", vim.lsp.diagnostic.goto_next, { buffer = 0 })
+    vim.keymap.set("n", "<leader>dp", vim.lsp.diagnostic.goto_prev, { buffer = 0 })
+    vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, { buffer = 0 })
+    vim.api.nvim_set_keymap("n", "<space>f", ":lua vim.lsp.buf.format()<cr>", silent_noremap)
+end
+
 nvim_lsp.gopls.setup {
     capabilities = capabilities,
-    on_attach = function()
-        vim.keymap.set("n", "gd", vim.lsp.buf.definition, { noremap = true })
-        vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = 0 })
-        vim.keymap.set("n", "<leader>dn", vim.lsp.diagnostic.goto_next, { buffer = 0 })
-    end
+    on_attach = custom_on_attach
 }
 
 nvim_lsp.volar.setup {
     capabilities = capabilities,
     filetypes = { "html", "vue", "javascript", "javascriptreact", "typescript", "typescriptreact" },
+    on_attach = custom_on_attach,
     init_options = {
         typescript = {
             tsdk = '/usr/lib/node_modules/typescript/lib',
@@ -34,10 +40,17 @@ nvim_lsp.volar.setup {
 
 nvim_lsp.tsserver.setup {
     capabilities = capabilities,
+    on_attach = custom_on_attach,
+}
+
+nvim_lsp.tailwindcss.setup {
+    capabilities = capabilities,
+    on_attach = custom_on_attach,
 }
 
 nvim_lsp.sumneko_lua.setup {
     capabilities = capabilities,
+    on_attach = custom_on_attach,
     cmd = { "/opt/lua-language-server/bin/lua-language-server" },
     settings = {
         Lua = {
@@ -61,18 +74,17 @@ nvim_lsp.sumneko_lua.setup {
 vim.cmd([[autocmd BufRead,BufNewFile *.tf,*.tfvars set filetype=terraform]])
 nvim_lsp.terraformls.setup {
     capabilities = capabilities,
+    on_attach = custom_on_attach,
     filetypes = { 'terraform', 'tf' },
     cmd = { 'terraform-ls', 'serve' }
 }
 
 nvim_lsp.tflint.setup {
     capabilities = capabilities,
+    on_attach = custom_on_attach,
     filetypes = { 'terraform', 'tf' },
     cmd = { 'tflint', '--langserver' },
 }
-
--- native lsp format on leader f
-vim.api.nvim_set_keymap("n", "<space>f", ":lua vim.lsp.buf.format()<cr>", silent_noremap)
 
 
 require("luasnip.loaders.from_snipmate").load()
