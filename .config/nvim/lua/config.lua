@@ -1,6 +1,12 @@
 local noremap = { noremap = true }
 local silent_noremap = { noremap = true, silent = true }
 
+local hop = require('hop')
+local directions = require('hop.hint').HintDirection
+vim.keymap.set('', 'f', function()
+    hop.hint_words()
+end, { remap = true })
+
 -- treesitter setuo
 require('nvim-treesitter.configs').setup {
     auto_install = true,
