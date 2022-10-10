@@ -8,7 +8,7 @@ If not said in the particular area of the language server, all binaries have to 
 
 ## lua - sumneko
 This one is configured to search for the binary at `/opt/lua-language-server/bin/lua-language-server`
-Configuration can be found here [plugins.lua](lua/plugins.lua#29)
+Configuration can be found here [lsp.lua](lua/lsp.lua#L29)
 
 https://github.com/sumneko/lua-language-server
 
@@ -20,7 +20,7 @@ https://github.com/golang/tools/tree/master/gopls
 
 ## Web - volar, typescript, tailwindcss
 Volar looks for global typescript installation in `/usr/lib/node_modules/typescript/lib/`.
-Configuration can be found here [plugins.lua](lua/plugins.lua#14)
+Configuration can be found here [lsp.lua](lua/lsp.lua#L14)
 
 https://github.com/johnsoncodehk/volar
 https://github.com/typescript-language-server/typescript-language-server
