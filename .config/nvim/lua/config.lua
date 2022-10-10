@@ -13,13 +13,15 @@ require('nvim-treesitter.configs').setup {
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 local nvim_lsp = require('lspconfig')
 
-local custom_on_attach = function()
+if #vim.lsp.buf_get_clients(0) > 0 then
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, { noremap = true })
-    vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = 0 })
-    vim.keymap.set("n", "<leader>dn", vim.lsp.diagnostic.goto_next, { buffer = 0 })
-    vim.keymap.set("n", "<leader>dp", vim.lsp.diagnostic.goto_prev, { buffer = 0 })
-    vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, { buffer = 0 })
-    vim.api.nvim_set_keymap("n", "<space>f", ":lua vim.lsp.buf.format()<cr>", silent_noremap)
+    vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = 0, noremap = true })
+    vim.keymap.set("n", "<space>f", vim.lsp.buf.format, { buffer = 0, noremap = true })
+end
+
+
+
+local custom_on_attach = function()
 end
 
 nvim_lsp.gopls.setup {
