@@ -3,7 +3,7 @@ vim.keymap.set('i', 'jk', '<esc>', { noremap = true })
 
 -- save, quit, hard quit
 vim.keymap.set('n', '<leader>q', ':q<cr>', { noremap = true })
-vim.keymap.set('n', '<leader>Q', ':q!', { noremap = true })
+vim.keymap.set('n', '<leader>Q', ':q!<cr>', { noremap = true })
 vim.keymap.set('n', '<leader>w', ':w<cr>', { noremap = true })
 
 -- split navigation shortcuts
