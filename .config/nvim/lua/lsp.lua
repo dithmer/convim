@@ -58,3 +58,7 @@ nvim_lsp.tflint.setup {
     filetypes = { 'terraform', 'tf' },
     cmd = { 'tflint', '--langserver' },
 }
+
+nvim_lsp.bashls.setup {
+    capabilities = capabilities,
+}
