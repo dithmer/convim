@@ -1,6 +1,7 @@
 syntax enable
 colorscheme dracula
 
+set termguicolors
 set nocompatible
 set showmatch
 set ignorecase
