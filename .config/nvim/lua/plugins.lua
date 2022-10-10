@@ -15,76 +15,146 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
+
     use({
         "aserowy/tmux.nvim",
         config = function() require("tmux").setup() end
     })
 
-    use 'nvim-treesitter/nvim-treesitter'
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        config = function()
+            require('nvim-treesitter.configs').setup {
+                auto_install = true,
+                highlight = {
+                    enable = true,
+                }
+            }
+        end
+    }
 
     use 'tjdevries/nlua.nvim'
     use 'neovim/nvim-lspconfig'
+    use {
+        "jose-elias-alvarez/null-ls.nvim",
+        config = function()
+            require("null-ls").setup {
+                sources = {
+                    require("null-ls").builtins.formatting.prettier,
+                }
+            }
+        end
+    }
 
     use 'github/copilot.vim'
 
-    -- I prefer copilot.vim right now over nvim-cmp
-    --[[ use {
-        "zbirenbaum/copilot.lua",
-        event = { "VimEnter" },
-        config = function()
-            vim.defer_fn(function()
-                require("copilot").setup {
-                }
-            end, 100)
-        end,
-    }
-
     use {
-        "zbirenbaum/copilot-cmp",
-        after = { "copilot.lua", "nvim-cmp" },
+        'L3MON4D3/LuaSnip',
         config = function()
-            require("copilot_cmp").setup {
-                method = "getCompletionsCycling",
-                force_autofmt = false,
-                clear_after_cursor = true,
-                formatters = {
-                    label = require("copilot_cmp.format").format_label_text,
-                    insert_text = require("copilot_cmp.format").format_insert_text,
-                    preview = require("copilot_cmp.format").deindent,
-                },
-            }
+            require("luasnip.loaders.from_snipmate").load()
         end
-    }]] --
-
-    use 'L3MON4D3/LuaSnip'
+    }
     use 'saadparwaiz1/cmp_luasnip'
     use 'honza/vim-snippets'
 
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-path'
-    use 'hrsh7th/nvim-cmp'
+    use {
+        'hrsh7th/nvim-cmp',
+        config = function()
+            local cmp = require('cmp')
+
+            cmp.setup({
+                snippet = {
+                    expand = function(args)
+                        require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+                    end,
+                },
+                window = {},
+                mapping = cmp.mapping.preset.insert({
+                    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+                    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+                    ['<C-Space>'] = cmp.mapping.complete(),
+                    ['<C-e>'] = cmp.mapping.abort(),
+                    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+                }),
+                sources = cmp.config.sources({
+                    { name = 'copilot' },
+                    { name = 'nvim_lsp' },
+                    { name = 'path' },
+                    { name = 'luasnip' },
+                }, {
+                    { name = 'buffer' },
+                })
+            })
+
+            cmp.setup.filetype('gitcommit', {
+                sources = cmp.config.sources({
+                    { name = 'cmp_git' },
+                }, {
+                    { name = 'buffer' },
+                })
+            })
+
+            cmp.setup.cmdline({ '/', '?' }, {
+                mapping = cmp.mapping.preset.cmdline(),
+                sources = {
+                    { name = 'buffer' }
+                }
+            })
+
+            cmp.setup.cmdline(':', {
+                mapping = cmp.mapping.preset.cmdline(),
+                sources = cmp.config.sources({
+                    { name = 'path' }
+                }, {
+                    { name = 'cmdline' }
+                })
+            })
+        end
+    }
 
     use {
         'phaazon/hop.nvim',
-        branch = 'v2', -- optional but strongly recommended
+        branch = 'v2',
         config = function()
-            -- you can configure Hop the way you like here; see :h hop-config
             require 'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
         end
     }
 
     use 'kyazdani42/nvim-web-devicons'
-    use 'kyazdani42/nvim-tree.lua'
+    use {
+        'kyazdani42/nvim-tree.lua',
+        config = function()
+            require('nvim-tree').setup {}
+        end
+    }
 
     use { 'dracula/vim', as = 'dracula' }
     use 'vim-airline/vim-airline'
 
     use 'nvim-lua/plenary.nvim'
-    use { 'nvim-telescope/telescope.nvim', tag = '0.1.0' }
-    use 'folke/todo-comments.nvim'
-    use 'Pocco81/true-zen.nvim'
-    use 'FeiyouG/command_center.nvim'
+    use {
+        'nvim-telescope/telescope.nvim',
+        tag = '0.1.0',
+        config = function()
+            require('telescope').setup {}
+        end
+    }
+    use {
+        'folke/todo-comments.nvim',
+        config = function()
+            require('todo-comments').setup {}
+        end
+    }
+
+    use {
+        'Pocco81/true-zen.nvim',
+        config = function()
+            require("true-zen").setup {}
+        end
+    }
 
     use 'tpope/vim-fugitive'
 
