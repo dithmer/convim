@@ -19,14 +19,13 @@ vim.keymap.set('n', '<leader>o', ':NvimTreeToggle<cr>', { noremap = true })
 vim.keymap.set('n', '<leader>zz', require("true-zen.ataraxis").toggle, { noremap = true })
 
 -- Telescope
-local telescope = require('telescope')
 local telescope_builtin = require('telescope.builtin')
 
 vim.keymap.set('n', '<leader>ff', function() telescope_builtin.find_files({ hidden = true }) end, { noremap = true })
 vim.keymap.set('n', '<leader>fg', telescope_builtin.live_grep, { noremap = true })
 vim.keymap.set('n', '<leader>fb', telescope_builtin.buffers, { noremap = true })
 vim.keymap.set('n', '<leader>fh', telescope_builtin.help_tags, { noremap = true })
-vim.keymap.set('n', '<leader>fq', telescope_builtin.quickfix, { noremap = true })
+vim.keymap.set('n', '<leader>fd', telescope_builtin.diagnostics, { noremap = true })
 vim.keymap.set('n', '<leader>fs', telescope_builtin.lsp_document_symbols, { noremap = true })
 vim.keymap.set('n', '<leader>fc', telescope_builtin.command_history, { noremap = true })
 
