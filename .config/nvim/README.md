@@ -15,8 +15,10 @@ https://github.com/sumneko/lua-language-server
 ## bash - bashls
 https://github.com/mads-hartmann/bash-language-server
 
-## Go - gopls
+## Go - gopls, golangci-lint
 https://github.com/golang/tools/tree/master/gopls
+https://github.com/nametake/golangci-lint-langserver
+https://github.com/golangci/golangci-lint
 
 ## Web - volar, typescript, tailwindcss
 Volar looks for global typescript installation in `/usr/lib/node_modules/typescript/lib/`.
@@ -30,7 +32,18 @@ https://github.com/tailwindlabs/tailwindcss-intellisense
 https://github.com/hashicorp/terraform-ls
 https://github.com/terraform-linters/tflint
 
+## Rust - rust-analyzer
+https://rust-analyzer.github.io/
+
 # formatters
 
 ## prettier
 https://prettier.io/
+
+## gofmt
+https://pkg.go.dev/cmd/gofmt
+
+# debuggers
+
+## go - go-delve
+https://github.com/go-delve/delve
