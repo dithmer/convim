@@ -6,6 +6,13 @@ nvim_lsp.gopls.setup {
     capabilities = capabilities,
 }
 
+nvim_lsp.golangci_lint_ls.setup {
+    capabilities = capabilities,
+    init_options = {
+        command = { "golangci-lint", "run", "--out-format", "json", "--enable-all", "--disable", "forbidigo,wsl,gci" },
+    }
+}
+
 nvim_lsp.volar.setup {
     capabilities = capabilities,
     filetypes = { "html", "vue", "javascript", "javascriptreact", "typescript", "typescriptreact" },
@@ -63,4 +70,4 @@ nvim_lsp.bashls.setup {
     capabilities = capabilities,
 }
 
-nvim_lsp.rust_analyzer.setup{}
+nvim_lsp.rust_analyzer.setup {}

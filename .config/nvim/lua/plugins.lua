@@ -33,6 +33,37 @@ return require('packer').startup(function(use)
         end
     }
 
+    use 'mfussenegger/nvim-dap'
+    use {
+        "rcarriga/nvim-dap-ui",
+        requires = { "mfussenegger/nvim-dap" },
+        config = function()
+            require("dapui").setup {
+                layouts = {
+                    {
+                        elements = {
+                            -- Elements can be strings or table with id and size keys.
+                            { id = "scopes", size = 0.25 },
+                            "breakpoints",
+                        },
+                        size = 0.33,
+                        position = "bottom",
+                    },
+                },
+                controls = {
+                    enabled = false
+                }
+            }
+        end
+    }
+    use {
+        'leoluz/nvim-dap-go',
+        config = function()
+            require('dap-go').setup {}
+        end,
+        requires = { 'mfussenegger/nvim-dap' }
+    }
+
     use 'tjdevries/nlua.nvim'
     use 'neovim/nvim-lspconfig'
     use {
@@ -41,6 +72,7 @@ return require('packer').startup(function(use)
             require("null-ls").setup {
                 sources = {
                     require("null-ls").builtins.formatting.prettier,
+                    require("null-ls").builtins.formatting.gofmt,
                 }
             }
         end
@@ -138,7 +170,7 @@ return require('packer').startup(function(use)
     -- use 'vim-airline/vim-airline'
     use {
         'hoob3rt/lualine.nvim',
-        requires = {'kyazdani42/nvim-web-devicons', opt = true},
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true },
         config = function()
             require('lualine').setup {}
         end
