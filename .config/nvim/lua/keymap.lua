@@ -34,7 +34,13 @@ vim.keymap.set('n', '<leader>fc', telescope_builtin.command_history, { noremap =
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, { noremap = true })
 vim.keymap.set("n", "K", vim.lsp.buf.hover, { noremap = true })
 vim.keymap.set("n", "<space>ff", vim.lsp.buf.format, { noremap = true })
+vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, { noremap = true })
+vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, { noremap = true })
 
 -- hop
 local hop = require('hop')
 vim.keymap.set('', 'f', function() hop.hint_words() end, { remap = true })
+
+-- reload
+vim.keymap.set('n', '<leader>sv', require('reload').module_telescope, { noremap = true })
+vim.keymap.set('n', '<leader>sc', require('reload').current_file, { noremap = true })

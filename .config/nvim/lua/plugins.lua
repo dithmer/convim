@@ -132,7 +132,17 @@ return require('packer').startup(function(use)
     }
 
     use { 'dracula/vim', as = 'dracula' }
-    use 'vim-airline/vim-airline'
+    use { "ellisonleao/gruvbox.nvim" }
+
+    -- install lualine
+    -- use 'vim-airline/vim-airline'
+    use {
+        'hoob3rt/lualine.nvim',
+        requires = {'kyazdani42/nvim-web-devicons', opt = true},
+        config = function()
+            require('lualine').setup {}
+        end
+    }
 
     use 'nvim-lua/plenary.nvim'
     use {
