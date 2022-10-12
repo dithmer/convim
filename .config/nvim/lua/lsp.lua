@@ -62,3 +62,5 @@ nvim_lsp.tflint.setup {
 nvim_lsp.bashls.setup {
     capabilities = capabilities,
 }
+
+nvim_lsp.rust_analyzer.setup{}

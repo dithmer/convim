@@ -5,6 +5,7 @@ vim.keymap.set('i', 'jk', '<esc>', { noremap = true })
 vim.keymap.set('n', '<leader>q', ':q<cr>', { noremap = true })
 vim.keymap.set('n', '<leader>Q', ':q!<cr>', { noremap = true })
 vim.keymap.set('n', '<leader>w', ':w<cr>', { noremap = true })
+vim.keymap.set('n', '<leader>W', ':w !sudo tee %<cr>', { noremap = true })
 
 -- split navigation shortcuts
 vim.keymap.set('n', '<C-h>', '<C-w>h', { noremap = true })
