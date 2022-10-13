@@ -7,6 +7,10 @@ vim.keymap.set("n", "<leader>Q", ":q!<cr>", { noremap = true })
 vim.keymap.set("n", "<leader>w", ":w<cr>", { noremap = true })
 vim.keymap.set("n", "<leader>W", ":w !sudo tee %<cr>", { noremap = true })
 
+-- easier splits
+vim.keymap.set("n", "<C-[>", ":belowright split<cr>", { silent=true, noremap = true })
+vim.keymap.set("n", "<C-]>", ":belowright vsplit<cr>", { silent=true, noremap = true })
+
 -- split navigation shortcuts
 vim.keymap.set("n", "<C-h>", "<C-w>h", { noremap = true })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { noremap = true })
@@ -70,6 +74,12 @@ vim.keymap.set("n", "<leader>dc", require("dap").continue, { noremap = true })
 vim.keymap.set("n", "<leader>di", require("dap").step_into, { noremap = true })
 vim.keymap.set("n", "<leader>do", require("dap").step_over, { noremap = true })
 vim.keymap.set("n", "<leader>dr", require("dap").repl.toggle, { noremap = true })
+vim.keymap.set("n", "<leader>ds", require("dap").stop, { noremap = true })
 
 -- dapui
 vim.keymap.set("n", "<leader>dui", require("dapui").toggle, { noremap = true })
+
+-- execute current luafile
+vim.keymap.set("n", "<leader>x", function()
+    vim.cmd("luafile " .. vim.fn.expand("%"))
+end, { noremap = true })
