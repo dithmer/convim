@@ -73,6 +73,8 @@ return require('packer').startup(function(use)
                 sources = {
                     require("null-ls").builtins.formatting.prettier,
                     require("null-ls").builtins.formatting.gofmt,
+                    require("null-ls").builtins.formatting.stylua,
+                    require("null-ls").builtins.diagnostics.shellcheck
                 }
             }
         end
@@ -190,6 +192,14 @@ return require('packer').startup(function(use)
             require('todo-comments').setup {}
         end
     }
+    use{
+        'winston0410/commented.nvim',
+        config = function()
+            require('commented').setup{
+                set_keybindings = false,
+            }
+        end
+    }
 
     use {
         'Pocco81/true-zen.nvim',
@@ -200,18 +210,18 @@ return require('packer').startup(function(use)
 
     use 'tpope/vim-fugitive'
 
-    use({
-        "folke/noice.nvim",
-        event = "VimEnter",
-        config = function()
-            require("noice").setup()
-        end,
-        requires = {
-            -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-            "MunifTanjim/nui.nvim",
-            "rcarriga/nvim-notify",
-        }
-    })
+    --use({
+    --    "folke/noice.nvim",
+    --    event = "VimEnter",
+    --    config = function()
+    --        require("noice").setup()
+    --    end,
+    --    requires = {
+    --        -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+    --        "MunifTanjim/nui.nvim",
+    --        "rcarriga/nvim-notify",
+    --    }
+    --})
 
     use {
         "folke/which-key.nvim",
