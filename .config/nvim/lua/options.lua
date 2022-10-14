@@ -47,6 +47,13 @@ vim.opt.timeoutlen = 300
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 
 vim.opt.background = "dark"
-vim.cmd([[colorscheme gruvbox]])
+
+local colorscheme = 'gruvbox'
+local ok, _ = pcall(require, colorscheme)
+if ok then
+    vim.cmd([[colorscheme ]] .. colorscheme)
+else
+    vim.cmd([[colorscheme default]])
+end
 
 vim.opt.scrolloff = 20

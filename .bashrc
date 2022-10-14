@@ -125,7 +125,10 @@ source "$OSH"/oh-my-bash.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias bashconfig="nvim $HOME/.bashrc"
-alias nvimconfig="nvim +'cd $HOME/.config/nvim' +'e init.lua'"
+alias bashconfig="nvim +'cd $HOME' $HOME/.bashrc"
+alias nvimconfig="nvim +'cd $HOME/.config/nvim' +'e init.lua' +'NvimTreeFindFile'"
+alias i3config="nvim +'cd $HOME/.config/i3/' +'e config'"
 # alias ohmybash="mate ~/.oh-my-bash"
 alias convim='/usr/bin/git --git-dir=$HOME/.convim/ --work-tree=$HOME'
+
+alias pinstall='pacman -Slq | fzf --multi --preview '\''pacman -Si {1}'\'' | xargs -re sudo pacman --noconfirm -S'
