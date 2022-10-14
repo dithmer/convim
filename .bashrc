@@ -9,7 +9,7 @@ esac
 export OSH="$HOME/.oh-my-bash"
 
 #  OSH_THEME="font"
-export OSH_THEME="random"
+export OSH_THEME="powerline"
 
 export UPDATE_OSH_DAYS=1
 
@@ -56,8 +56,8 @@ alias nvimconfig="nvim +'cd \$HOME/.config/nvim' +'e init.lua' +'NvimTreeFindFil
 alias i3config="nvim +'cd \$HOME/.config/i3/' +'e config'"
 alias convim='/usr/bin/git --git-dir=$HOME/.convim/ --work-tree=$HOME'
 
-alias pinstall='pacman -Slq | fzf --multi --preview '\''pacman -Si {1}'\'' | xargs -re sudo pacman --noconfirm -S'
-alias pupdate='sudo pacman -Syu'
+alias pinstall='yay -Slq | fzf --multi --preview '\''yay -Si {1}'\'' | xargs -re yay --noconfirm -S'
+alias pupdate='yay'
 
 export PATH="$HOME/.local/bin:$PATH"
 

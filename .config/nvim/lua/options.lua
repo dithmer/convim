@@ -45,6 +45,9 @@ vim.opt.signcolumn = "yes"
 vim.opt.autowrite = true
 vim.opt.timeoutlen = 300
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
+vim.opt.foldmethod = 'expr'
+vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.opt.foldlevel = 99
 
 vim.opt.background = "dark"
 

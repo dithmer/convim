@@ -8,6 +8,7 @@ smart_borders on
 
 exec --no-startup-id "$HOME/.screenlayout/2_monitor.sh"
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id pulseaudio
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 

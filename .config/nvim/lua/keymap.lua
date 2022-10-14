@@ -8,8 +8,8 @@ vim.keymap.set("n", "<leader>w", ":w<cr>", { noremap = true })
 vim.keymap.set("n", "<leader>W", ":w !sudo tee %<cr>", { noremap = true })
 
 -- easier splits
-vim.keymap.set("n", "<C-[>", ":belowright split<cr>", { silent = true, noremap = true })
-vim.keymap.set("n", "<C-]>", ":belowright vsplit<cr>", { silent = true, noremap = true })
+vim.keymap.set("n", "s[", ":belowright split<cr>", { silent = true, noremap = true })
+vim.keymap.set("n", "s]", ":belowright vsplit<cr>", { silent = true, noremap = true })
 
 -- split navigation shortcuts
 vim.keymap.set("n", "<C-h>", "<C-w>h", { noremap = true })
