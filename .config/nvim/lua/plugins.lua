@@ -36,6 +36,7 @@ return require("packer").startup(function(use)
 			})
 		end,
 	})
+	use({ "nvim-treesitter/nvim-treesitter-context" })
 
 	use("mfussenegger/nvim-dap")
 	use({
@@ -69,7 +70,7 @@ return require("packer").startup(function(use)
 	})
 
 	use({
-		"folke/lua-dev.nvim",
+		"folke/neodev.nvim",
 	})
 	use("neovim/nvim-lspconfig")
 	use({

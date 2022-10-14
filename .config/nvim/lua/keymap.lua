@@ -23,6 +23,12 @@ vim.keymap.set("n", "L", "$", { noremap = true })
 vim.keymap.set("v", "H", "^", { noremap = true })
 vim.keymap.set("v", "L", "$", { noremap = true })
 
+-- tabs and tab navigation
+vim.keymap.set("n", "<leader>tt", ":tabnew<cr>", { noremap = true })
+vim.keymap.set("n", "<leader>tc", ":tabclose<cr>", { noremap = true })
+vim.keymap.set("n", "<M-n>", ":tabprevious<cr>", { noremap = true })
+vim.keymap.set("n", "<M-m>", ":tabnext<cr>", { noremap = true })
+
 -- packer commands
 vim.keymap.set("n", "<leader>ps", ":PackerSync<cr>", { noremap = true })
 

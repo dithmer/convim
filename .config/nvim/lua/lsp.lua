@@ -39,7 +39,7 @@ nvim_lsp.tailwindcss.setup({
 	capabilities = capabilities,
 })
 
-require("lua-dev").setup({})
+require("neodev").setup({})
 nvim_lsp.sumneko_lua.setup({
 	capabilities = capabilities,
 	cmd = { "/opt/lua-language-server/bin/lua-language-server" },
