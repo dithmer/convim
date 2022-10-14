@@ -18,6 +18,14 @@ return require("packer").startup(function(use)
 
 	use("nathom/filetype.nvim")
 
+	-- harpoon
+	use({
+		"ThePrimeagen/harpoon",
+		config = function()
+			require("harpoon").setup()
+		end,
+	})
+
 	use({
 		"aserowy/tmux.nvim",
 		config = function()

@@ -8,8 +8,8 @@ vim.keymap.set("n", "<leader>w", ":w<cr>", { noremap = true })
 vim.keymap.set("n", "<leader>W", ":w !sudo tee %<cr>", { noremap = true })
 
 -- easier splits
-vim.keymap.set("n", "<C-[>", ":belowright split<cr>", { silent=true, noremap = true })
-vim.keymap.set("n", "<C-]>", ":belowright vsplit<cr>", { silent=true, noremap = true })
+vim.keymap.set("n", "<C-[>", ":belowright split<cr>", { silent = true, noremap = true })
+vim.keymap.set("n", "<C-]>", ":belowright vsplit<cr>", { silent = true, noremap = true })
 
 -- split navigation shortcuts
 vim.keymap.set("n", "<C-h>", "<C-w>h", { noremap = true })
@@ -37,6 +37,18 @@ vim.keymap.set("n", "<leader>o", ":NvimTreeToggle<cr>", { noremap = true })
 
 -- TrueZen
 vim.keymap.set("n", "<leader>zz", require("true-zen.ataraxis").toggle, { noremap = true })
+
+-- harpoon
+vim.keymap.set("n", "<leader>hh", ":lua require('harpoon.ui').toggle_quick_menu()<cr>", { noremap = true })
+vim.keymap.set("n", "<leader><leader>h", function()
+	require("harpoon.mark").add_file()
+end, { noremap = true })
+
+for i = 1, 4 do
+	vim.keymap.set("n", "<leader>h" .. i, function()
+		require("harpoon.ui").nav_file(i)
+	end, { noremap = true })
+end
 
 -- Telescope
 local telescope_builtin = require("telescope.builtin")
@@ -87,5 +99,5 @@ vim.keymap.set("n", "<leader>dui", require("dapui").toggle, { noremap = true })
 
 -- execute current luafile
 vim.keymap.set("n", "<leader>x", function()
-    vim.cmd("luafile " .. vim.fn.expand("%"))
+	vim.cmd("luafile " .. vim.fn.expand("%"))
 end, { noremap = true })
