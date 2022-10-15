@@ -106,6 +106,7 @@ return require("packer").startup(function(use)
                     require("null-ls").builtins.formatting.gofmt,
                     require("null-ls").builtins.formatting.stylua,
                     require("null-ls").builtins.diagnostics.shellcheck,
+                    require("null-ls").builtins.formatting.shfmt,
                 },
             })
         end,
