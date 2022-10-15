@@ -1,5 +1,6 @@
 -- lsp setup
-local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+--  local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities =require("cmp_nvim_lsp").default_capabilities()
 local nvim_lsp = require("lspconfig")
 
 nvim_lsp.gopls.setup({
