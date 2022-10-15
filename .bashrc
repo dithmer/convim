@@ -48,6 +48,8 @@ fi
 
 source "$OSH"/oh-my-bash.sh
 
+neofetch
+
 export EDITOR="nvim"
 export LANG=en_US.UTF-8
 
