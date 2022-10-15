@@ -9,6 +9,7 @@ smart_borders on
 exec --no-startup-id "$HOME/.screenlayout/2_monitor.sh"
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id pulseaudio
+exec --no-startup-id greenclip daemon
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
@@ -17,6 +18,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 
 bindcode $mod+40 exec "rofi -modi drun,run -show drun"
+bindsym $mod+c exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
