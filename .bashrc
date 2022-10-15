@@ -1,8 +1,8 @@
 #!/bin/bash
 # Enable the subsequent settings only in interactive sessions
 case $- in
-  *i*) ;;
-    *) return;;
+*i*) ;;
+*) return ;;
 esac
 
 # Path to your oh-my-bash installation.
@@ -20,9 +20,9 @@ export OMB_USE_SUDO=true
 # Example format: completions=(ssh git bundler gem pip pip3)
 # Add wisely, as too many completions slow down shell startup.
 export completions=(
-  git
-  composer
-  ssh
+	git
+	composer
+	ssh
 )
 
 # Which aliases would you like to load? (aliases can be found in ~/.oh-my-bash/aliases/*)
@@ -30,7 +30,7 @@ export completions=(
 # Example format: aliases=(vagrant composer git-avh)
 # Add wisely, as too many aliases slow down shell startup.
 export aliases=(
-  general
+	general
 )
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-bash/plugins/*)
@@ -38,12 +38,12 @@ export aliases=(
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 export plugins=(
-  git
-  bashmarks
+	git
+	bashmarks
 )
 
 if [ "$DISPLAY" ] || [ "$SSH" ]; then
-    plugins+=(tmux-autoattach)
+	plugins+=(tmux-autoattach)
 fi
 
 source "$OSH"/oh-my-bash.sh
@@ -66,6 +66,6 @@ alias cat='bat'
 export PATH="$HOME/.local/bin:$PATH"
 
 # Add $HOME/go/bin to PATH if go is installed
-if which go &> /dev/null; then
-    export PATH="$PATH:$HOME/go/bin"
+if which go &>/dev/null; then
+	export PATH="$PATH:$HOME/go/bin"
 fi
