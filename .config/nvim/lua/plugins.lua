@@ -27,7 +27,14 @@ return require("packer").startup(function(use)
         end,
     })
 
-    -- harpoon
+    -- suda
+    use({
+        "lambdalisue/suda.vim",
+        config = function()
+            vim.g.suda_smart_edit = 1
+        end,
+    })
+
     use({
         "ThePrimeagen/harpoon",
         config = function()
