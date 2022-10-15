@@ -1,0 +1,82 @@
+#!/bin/bash
+set -euo pipefail
+
+cd "$HOME" || exit 1
+
+function colored_heading() {
+    echo -e "\e[1;34m----------$1----------\e[0m"
+}
+
+function warning() {
+    echo -e "\e[1;33m$1\e[0m"
+}
+
+function info() {
+    echo -e "\e[1;32m$1\e[0m"
+}
+
+function error() {
+    echo -e "\e[1;31m$1\e[0m"
+}
+
+# get linux distro
+if [ -f /etc/os-release ]; then
+    . /etc/os-release
+    distro=$ID
+elif [ -f /etc/lsb-release ]; then
+    . /etc/lsb-release
+    distro=$DISTRIB_ID
+else
+    distro=$(uname -s)
+fi
+
+info "Detected distro: $distro"
+
+if [ "$distro" = "arch" ]; then
+    info "Bootstrapping Arch Linux"
+else
+    error "Unsupported distro: $distro"
+    exit 1
+fi
+
+base_packages=(base base-devel linux linux-lts linux-headers linux-firmware git neovim pacman-contrib sudo)
+sudo pacman -Sy --noconfirm "${base_packages[@]}"
+
+if ! which yay; then
+    # Install yay
+    colored_heading "Installing yay"
+    git clone https://aur.archlinux.org/yay.git
+    cd yay || exit 1
+    makepkg -si --noconfirm
+fi
+yay -Syu --noconfirm
+
+
+colored_heading "Installing packages"
+ui_packages=(xorg xorg-xinit sddm i3-gaps polybar rofi alacritty firefox arandr fzf spotify discord pulseaudio pavucontrol)
+cli_packages=(fzf ripgrep bat openssh tmux wget curl unzip)
+dev_packages=(python go rust shellcheck)
+
+# Install UI packages
+yay -S --noconfirm "${ui_packages[@]}"
+
+# Install CLI packages
+yay -S --noconfirm "${cli_packages[@]}"
+
+# Install dev packages
+yay -S --noconfirm "${dev_packages[@]}"
+
+# enable sddm
+sudo systemctl enable sddm
+
+# ask to write ~/.xinitrc
+if [ ! -f "$HOME/.xinitrc" ]; then
+    colored_heading "Writing ~/.xinitrc"
+    echo "exec i3" > "$HOME/.xinitrc"
+fi
+
+# install oh-my-bash
+if [ ! -d "$HOME/.oh-my-bash" ]; then
+    colored_heading "Installing oh-my-bash"
+    bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
+fi

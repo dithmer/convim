@@ -59,6 +59,8 @@ alias convim='/usr/bin/git --git-dir=$HOME/.convim/ --work-tree=$HOME'
 alias pinstall='yay -Slq | fzf --multi --preview '\''yay -Si {1}'\'' | xargs -re yay --noconfirm -S'
 alias pupdate='yay'
 
+alias cat='bat'
+
 export PATH="$HOME/.local/bin:$PATH"
 
 # Add $HOME/go/bin to PATH if go is installed
