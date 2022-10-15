@@ -48,8 +48,6 @@ fi
 
 source "$OSH"/oh-my-bash.sh
 
-neofetch
-
 export EDITOR="nvim"
 export LANG=en_US.UTF-8
 
@@ -69,3 +67,11 @@ export PATH="$HOME/.local/bin:$PATH"
 if which go &>/dev/null; then
 	export PATH="$PATH:$HOME/go/bin"
 fi
+
+# source fzf
+if [ -d /usr/share/fzf ]; then
+    source /usr/share/fzf/key-bindings.bash
+    source /usr/share/fzf/completion.bash
+fi
+
+neofetch
