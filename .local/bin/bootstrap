@@ -40,7 +40,7 @@ else
 fi
 
 base_packages=(base base-devel linux linux-lts linux-headers linux-firmware git neovim pacman-contrib sudo)
-sudo pacman -Sy --noconfirm "${base_packages[@]}"
+sudo pacman -S --needed --noconfirm "${base_packages[@]}"
 
 if ! which yay; then
     # Install yay
@@ -49,22 +49,33 @@ if ! which yay; then
     cd yay || exit 1
     makepkg -si --noconfirm
 fi
-yay -Syu --noconfirm
+yay --noconfirm
 
 
 colored_heading "Installing packages"
 ui_packages=(xorg xorg-xinit sddm i3-gaps polybar rofi alacritty firefox arandr fzf spotify discord pulseaudio pavucontrol rofi-greenclip)
 cli_packages=(fzf ripgrep bat openssh tmux wget curl unzip neofetch)
-dev_packages=(python go rust shellcheck shfmt bash-language-server prettier)
+dev_packages=(python go rust shellcheck shfmt bash-language-server prettier tailwindcss-language-server)
+
+go_packages=(golang.org/x/tools/gopls@latest github.com/golangci/golangci-lint/cmd/golangci-lint@latest github.com/nametake/golangci-lint-langserver@latest)
+npm_packages=(typescript typescript-language-server)
 
 # Install UI packages
-yay -S --noconfirm "${ui_packages[@]}"
+yay -S --needed --noconfirm "${ui_packages[@]}"
 
 # Install CLI packages
-yay -S --noconfirm "${cli_packages[@]}"
+yay -S --needed --noconfirm "${cli_packages[@]}"
 
 # Install dev packages
-yay -S --noconfirm "${dev_packages[@]}"
+yay -S --needed --noconfirm "${dev_packages[@]}"
+
+# Install go packages
+for pkg in "${go_packages[@]}"; do
+    go install "$pkg"
+done
+
+# Install npm packages
+sudo npm install -g "${npm_packages[@]}"
 
 # enable sddm
 sudo systemctl enable sddm
