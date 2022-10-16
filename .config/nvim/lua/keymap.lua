@@ -70,6 +70,10 @@ vim.keymap.set("n", "<space>ff", vim.lsp.buf.format, { noremap = true })
 vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, { noremap = true })
 vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, { noremap = true })
 
+-- diagnostics
+vim.keymap.set("n", "<space>dn", vim.diagnostic.goto_next, { noremap = true })
+vim.keymap.set("n", "<space>dp", vim.diagnostic.goto_prev, { noremap = true })
+
 -- commented
 local commented = require("commented")
 vim.keymap.set("n", "<leader>c", commented.commented, { noremap = true, expr = true, silent = true })
