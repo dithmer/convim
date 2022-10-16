@@ -103,7 +103,9 @@ return require("packer").startup(function(use)
             require("null-ls").setup({
                 sources = {
                     require("null-ls").builtins.formatting.prettier,
-                    require("null-ls").builtins.formatting.gofmt,
+                    require("null-ls").builtins.formatting.gofmt.with {
+                        arguments = { "-s" },
+                    },
                     require("null-ls").builtins.formatting.stylua,
                     require("null-ls").builtins.diagnostics.shellcheck,
                     require("null-ls").builtins.formatting.shfmt,
