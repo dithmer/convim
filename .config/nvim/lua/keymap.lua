@@ -61,6 +61,7 @@ vim.keymap.set("n", "<leader>fb", telescope_builtin.buffers, { noremap = true })
 vim.keymap.set("n", "<leader>fh", telescope_builtin.help_tags, { noremap = true })
 vim.keymap.set("n", "<leader>fd", telescope_builtin.diagnostics, { noremap = true })
 vim.keymap.set("n", "<leader>fs", telescope_builtin.lsp_document_symbols, { noremap = true })
+vim.keymap.set("n", "<leader>fw", telescope_builtin.lsp_dynamic_workspace_symbols, { noremap = true })
 vim.keymap.set("n", "<leader>fc", telescope_builtin.command_history, { noremap = true })
 
 -- LSP
@@ -83,6 +84,10 @@ vim.keymap.set("n", "<leader>/", commented.commented_line, { noremap = true, exp
 -- hop
 local hop = require("hop")
 vim.keymap.set("", "f", function()
+	hop.hint_char1()
+end, { remap = true })
+
+vim.keymap.set("", "F", function()
 	hop.hint_words()
 end, { remap = true })
 
