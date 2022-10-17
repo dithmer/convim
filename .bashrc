@@ -5,6 +5,37 @@ case $- in
 *) return ;;
 esac
 
+# get linux distribution
+if [ -f /etc/os-release ]; then
+	# freedesktop.org and systemd
+	. /etc/os-release
+	export OS=$NAME
+	export OS_VER=$VERSION_ID
+elif type lsb_release >/dev/null 2>&1; then
+	# linuxbase.org
+	export OS=$(lsb_release -si)
+	export OS_VER=$(lsb_release -sr)
+elif [ -f /etc/lsb-release ]; then
+	# For some versions of Debian/Ubuntu without lsb_release command
+	. /etc/lsb-release
+	export OS=$DISTRIB_ID
+	export OS_VER=$DISTRIB_RELEASE
+elif [ -f /etc/debian_version ]; then
+	# Older Debian/Ubuntu/etc.
+	export OS=Debian
+	export OS_VER=$(cat /etc/debian_version)
+elif [ -f /etc/SuSe-release ]; then
+	# Older SuSE/etc.
+	...
+elif [ -f /etc/redhat-release ]; then
+	# Older Red Hat, CentOS, etc.
+	...
+else
+	# Fall back to uname, e.g. "Linux <version>", also works for BSD, etc.
+	export OS=$(uname -s)
+	export OS_VER=$(uname -r)
+fi
+
 # Path to your oh-my-bash installation.
 export OSH="$HOME/.oh-my-bash"
 
@@ -56,8 +87,13 @@ alias nvimconfig="nvim +'cd \$HOME/.config/nvim' +'e init.lua' +'NvimTreeFindFil
 alias i3config="nvim +'cd \$HOME/.config/i3/' +'e config'"
 alias convim='/usr/bin/git --git-dir=$HOME/.convim/ --work-tree=$HOME'
 
-alias pinstall='yay -Slq | fzf --multi --preview '\''yay -Si {1}'\'' | xargs -re yay --noconfirm -S'
-alias pupdate='yay'
+if [[ "$OS" == "arch" ]]; then
+	alias pinstall='yay -Slq | fzf --multi --preview '\''yay -Si {1}'\'' | xargs -re yay --noconfirm -S'
+	alias pupdate='yay'
+elif [[ "$OS" == "Ubuntu" ]]; then
+	alias pinstall="apt-cache dump | grep ^Package: | cut -d\" \" -f2 | fzf --multi --preview 'apt-cache show {1}' --preview-window=up | xargs -re sudo apt-get install -y"
+	alias pupdate='sudo apt update && sudo apt full-upgrade'
+fi
 
 alias cat='bat'
 
@@ -70,8 +106,8 @@ fi
 
 # source fzf
 if [ -d /usr/share/fzf ]; then
-    source /usr/share/fzf/key-bindings.bash
-    source /usr/share/fzf/completion.bash
+	source /usr/share/fzf/key-bindings.bash
+	source /usr/share/fzf/completion.bash
 fi
 
 neofetch
