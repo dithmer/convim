@@ -36,7 +36,13 @@ vim.keymap.set("n", "<leader>ps", ":PackerSync<cr>", { noremap = true })
 vim.keymap.set("n", "<leader>o", ":NvimTreeToggle<cr>", { noremap = true })
 
 -- TrueZen
+local truezen = require("true-zen")
 vim.keymap.set("n", "<leader>zz", require("true-zen.ataraxis").toggle, { noremap = true })
+vim.keymap.set('v', '<leader>zn', function()
+  local first = vim.fn.line('v')
+  local last = vim.fn.line('.')
+  truezen.narrow(first, last)
+end, { noremap = true })
 
 -- harpoon
 vim.keymap.set("n", "<leader>hh", ":lua require('harpoon.ui').toggle_quick_menu()<cr>", { noremap = true })
@@ -49,6 +55,14 @@ for i = 1, 4 do
 		require("harpoon.ui").nav_file(i)
 	end, { noremap = true })
 end
+
+-- luasnip
+local ls = require("luasnip")
+vim.keymap.set({"i", "s"}, "<C-k>", function()
+    if ls.expand_or_jumpable() then
+        ls.expand_or_jump()
+    end
+end, { noremap = true })
 
 -- Telescope
 local telescope_builtin = require("telescope.builtin")
@@ -86,10 +100,14 @@ local hop = require("hop")
 vim.keymap.set("", "f", function()
 	hop.hint_char1()
 end, { remap = true })
-
 vim.keymap.set("", "F", function()
 	hop.hint_words()
 end, { remap = true })
+
+-- nvim-treehopper
+vim.keymap.set("x", "t", ":<C-U>lua require('tsht').nodes()<cr>", { noremap = true })
+vim.keymap.set("o", "t", ":lua require('tsht').nodes()<cr>")
+vim.keymap.set("n", "t", ":lua require('tsht').nodes()<cr>")
 
 -- reload
 vim.keymap.set("n", "<leader>sv", require("reload").module_telescope, { noremap = true })
