@@ -42,7 +42,7 @@ export plugins=(
 	bashmarks
 )
 
-if [ "$DISPLAY" ] || [ "$SSH" ]; then
+if [ "$DISPLAY" ] || [ "$SSH_TTY" ] || [ "$SSH_CLIENT" ]; then
 	plugins+=(tmux-autoattach)
 fi
 
@@ -64,7 +64,7 @@ alias cat='bat'
 export PATH="$HOME/.local/bin:$PATH"
 
 # Add $HOME/go/bin to PATH if go is installed
-if which go &>/dev/null; then
+if command -v go &>/dev/null; then
 	export PATH="$PATH:$HOME/go/bin"
 fi
 
