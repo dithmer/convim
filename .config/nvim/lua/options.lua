@@ -51,7 +51,9 @@ vim.opt.foldlevel = 99
 
 vim.opt.background = "dark"
 
-local colorscheme = 'gruvbox'
+
+local colorschmes = { 'gruvbox', 'tokyonight', 'dracula' }
+local colorscheme = colorschmes[2] 
 local ok, _ = pcall(require, colorscheme)
 if ok then
     vim.cmd([[colorscheme ]] .. colorscheme)
