@@ -258,30 +258,6 @@ return require("packer").startup(function(use)
 
     use("tpope/vim-fugitive")
 
-    --use({
-    --    "folke/noice.nvim",
-    --    event = "VimEnter",
-    --    config = function()
-    --        require("noice").setup()
-    --    end,
-    --    requires = {
-    --        -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-    --        "MunifTanjim/nui.nvim",
-    --        "rcarriga/nvim-notify",
-    --    }
-    --})
-
-    --  use {
-    --  "folke/which-key.nvim",
-    --  config = function()
-    --  require("which-key").setup {
-    --  -- your configuration comes here
-    --  -- or leave it empty to use the default settings
-    --  -- refer to the configuration section below
-    --  }
-    --  end
-    --  }
-
     if packer_bootstrap then
         require("packer").sync()
     end
