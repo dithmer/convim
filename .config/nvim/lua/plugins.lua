@@ -24,10 +24,10 @@ return require("packer").startup(function(use)
 	use({ "aserowy/tmux.nvim" })
 
 	use({ "lukas-reineke/indent-blankline.nvim" })
-    use({ "windwp/nvim-ts-autotag" })
-    use({ "windwp/nvim-autopairs" })
+	use({ "windwp/nvim-ts-autotag" })
+	use({ "windwp/nvim-autopairs" })
 	use({ "lewis6991/gitsigns.nvim" })
-	use({ "winston0410/commented.nvim", })
+	use({ "winston0410/commented.nvim" })
 
 	use({ "lambdalisue/suda.vim" })
 
@@ -63,7 +63,8 @@ return require("packer").startup(function(use)
 	use({ "hoob3rt/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons", opt = true } })
 
 	use({ "nvim-lua/plenary.nvim" })
-	use({ "nvim-telescope/telescope.nvim", tag = "0.1.0", })
+	use({ "nvim-telescope/telescope.nvim", tag = "0.1.0" })
+	use({ "nvim-telescope/telescope-symbols.nvim" })
 
 	if packer_bootstrap then
 		require("packer").sync()
