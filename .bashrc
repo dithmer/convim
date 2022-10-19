@@ -87,7 +87,7 @@ alias nvimconfig="nvim +'cd \$HOME/.config/nvim' +'e init.lua' +'NvimTreeFindFil
 alias i3config="nvim +'cd \$HOME/.config/i3/' +'e config'"
 alias convim='/usr/bin/git --git-dir=$HOME/.convim/ --work-tree=$HOME'
 
-if [[ "$OS" == "arch" ]]; then
+if [[ "$OS" == "Arch Linux" ]]; then
 	alias pinstall='yay -Slq | fzf --multi --preview '\''yay -Si {1}'\'' | xargs -re yay --noconfirm -S'
 	alias pupdate='yay'
 elif [[ "$OS" == "Ubuntu" ]]; then
