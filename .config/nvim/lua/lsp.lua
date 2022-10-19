@@ -24,7 +24,7 @@ nvim_lsp.golangci_lint_ls.setup({
 
 -- Debian differs from Arch for global npm installation
 local tsdk_path = '/usr/lib/node_modules/typescript/lib'
-if not vim.fn.isdirectory(tsdk_path) then
+if vim.fn.isdirectory(tsdk_path) == 0 then
     tsdk_path = '/usr/local/lib/node_modules/typescript/lib'
 end
 

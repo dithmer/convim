@@ -35,15 +35,6 @@ vim.keymap.set("n", "<leader>ps", ":PackerSync<cr>", { noremap = true })
 -- toggle NvimTree
 vim.keymap.set("n", "<leader>o", ":NvimTreeToggle<cr>", { noremap = true })
 
--- TrueZen
-local truezen = require("true-zen")
-vim.keymap.set("n", "<leader>zz", require("true-zen.ataraxis").toggle, { noremap = true })
-vim.keymap.set('v', '<leader>zn', function()
-  local first = vim.fn.line('v')
-  local last = vim.fn.line('.')
-  truezen.narrow(first, last)
-end, { noremap = true })
-
 -- harpoon
 vim.keymap.set("n", "<leader>hh", ":lua require('harpoon.ui').toggle_quick_menu()<cr>", { noremap = true })
 vim.keymap.set("n", "<leader><leader>h", function()
