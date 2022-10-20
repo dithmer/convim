@@ -1,6 +1,48 @@
 #!/bin/bash
 
-# Go into nvim folder and stylua all lua files except for packer_compiled
-cd "$HOME"/.config/nvim || exit
-stylua --output-format Summary -c -g '**/*.lua' -g '!plugin/packer_compiled.lua' -- .
+GREEN='\033[0;32m'
+RED='\033[0;31m'
+YELLOW='\033[1;33m'
+NC='\033[0m' # No Color
 
+function header() {
+	echo -e "${YELLOW}==>${NC} $1 ${YELLOW}<==${NC}"
+}
+
+function success() {
+	echo -e "${GREEN}✔️${NC} - $1"
+}
+
+function error() {
+	echo -e "${RED}❌${NC} - $1"
+}
+
+
+failures=()
+function run() {
+    section="$1"
+
+    header "$section"
+    shift
+    "$@" || failures+=("$section")
+}
+
+function check_failures() {
+    if [ ${#failures[@]} -eq 0 ]; then
+        success "All checks passed"
+    else
+        echo -e "${#failures[@]} section(s) failed:"
+        for failure in "${failures[@]}"; do
+            error "$failure"
+        done
+        exit 1
+    fi
+}
+
+
+cd "$HOME"/.config/nvim || exit
+run "nvim configuration files" stylua --output-format Summary -c -g '**/*.lua' -g '!plugin/packer_compiled.lua' -- .
+
+run "summary" check_failures
+
+echo
