@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Go into nvim folder and stylua all lua files except for packer_compiled
+cd "$HOME"/.config/nvim || exit
+stylua --output-format Summary -c -g '**/*.lua' -g '!plugin/packer_compiled.lua' -- .
+
