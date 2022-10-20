@@ -43,7 +43,7 @@ return require("packer").startup(function(use)
 	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
 	use({ "leoluz/nvim-dap-go", requires = { "mfussenegger/nvim-dap" } })
 
-    use({ "onsails/lspkind.nvim" })
+	use({ "onsails/lspkind.nvim" })
 	use({ "github/copilot.vim" })
 	use({ "folke/neodev.nvim" })
 	use({ "neovim/nvim-lspconfig" })

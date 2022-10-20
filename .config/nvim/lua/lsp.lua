@@ -1,6 +1,6 @@
 -- lsp setup
 --  local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
-local capabilities =require("cmp_nvim_lsp").default_capabilities()
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local nvim_lsp = require("lspconfig")
 
 nvim_lsp.gopls.setup({
@@ -23,9 +23,9 @@ nvim_lsp.golangci_lint_ls.setup({
 })
 
 -- Debian differs from Arch for global npm installation
-local tsdk_path = '/usr/lib/node_modules/typescript/lib'
+local tsdk_path = "/usr/lib/node_modules/typescript/lib"
 if vim.fn.isdirectory(tsdk_path) == 0 then
-    tsdk_path = '/usr/local/lib/node_modules/typescript/lib'
+	tsdk_path = "/usr/local/lib/node_modules/typescript/lib"
 end
 
 nvim_lsp.volar.setup({
