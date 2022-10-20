@@ -38,10 +38,6 @@ nvim_lsp.volar.setup({
 	},
 })
 
-nvim_lsp.tsserver.setup({
-	capabilities = capabilities,
-})
-
 nvim_lsp.tailwindcss.setup({
 	capabilities = capabilities,
 })

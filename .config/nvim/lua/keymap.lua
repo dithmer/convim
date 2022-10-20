@@ -68,6 +68,7 @@ vim.keymap.set("n", "<leader>fd", telescope_builtin.diagnostics, { noremap = tru
 vim.keymap.set("n", "<leader>fs", telescope_builtin.lsp_document_symbols, { noremap = true })
 vim.keymap.set("n", "<leader>fw", telescope_builtin.lsp_dynamic_workspace_symbols, { noremap = true })
 vim.keymap.set("n", "<leader>fc", telescope_builtin.command_history, { noremap = true })
+vim.keymap.set("n", "<leader>fx", telescope_builtin.symbols, { noremap = true })
 
 -- LSP
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, { noremap = true })
