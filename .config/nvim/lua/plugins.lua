@@ -22,6 +22,8 @@ return require("packer").startup(function(use)
 
 	use({ "nathom/filetype.nvim" })
 	use({ "aserowy/tmux.nvim" })
+	use({ "ja-ford/delaytrain.nvim" })
+	use({ "akinsho/toggleterm.nvim" })
 
 	use({ "lukas-reineke/indent-blankline.nvim" })
 	use({ "windwp/nvim-ts-autotag" })

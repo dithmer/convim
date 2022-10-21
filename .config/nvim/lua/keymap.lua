@@ -120,3 +120,6 @@ vim.keymap.set("n", "<leader>dui", require("dapui").toggle, { noremap = true })
 vim.keymap.set("n", "<leader>x", function()
 	vim.cmd("luafile " .. vim.fn.expand("%"))
 end, { noremap = true })
+
+-- toggleterm
+vim.keymap.set("n", "<leader>sh", ":ToggleTerm<cr>", { noremap = true })
