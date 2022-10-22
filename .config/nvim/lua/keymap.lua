@@ -96,11 +96,6 @@ vim.keymap.set("", "F", function()
 	hop.hint_words()
 end, { remap = true })
 
--- nvim-treehopper
-vim.keymap.set("x", "t", ":<C-U>lua require('tsht').nodes()<cr>", { noremap = true })
-vim.keymap.set("o", "t", ":lua require('tsht').nodes()<cr>")
-vim.keymap.set("n", "t", ":lua require('tsht').nodes()<cr>")
-
 -- reload
 vim.keymap.set("n", "<leader>sv", require("reload").module_telescope, { noremap = true })
 vim.keymap.set("n", "<leader>sc", require("reload").current_file, { noremap = true })

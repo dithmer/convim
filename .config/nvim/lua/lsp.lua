@@ -5,13 +5,13 @@ local nvim_lsp = require("lspconfig")
 
 nvim_lsp.gopls.setup({
 	capabilities = capabilities,
-    settings = {
-        gopls = {
-            env = {
-                GOFLAGS = "-tags=windows,linux,unittest"
-            },
-        },
-    },
+	settings = {
+		gopls = {
+			env = {
+				GOFLAGS = "-tags=windows,linux,unittest",
+			},
+		},
+	},
 })
 
 nvim_lsp.golangci_lint_ls.setup({
@@ -22,9 +22,10 @@ nvim_lsp.golangci_lint_ls.setup({
 			"run",
 			"--out-format",
 			"json",
-			"--enable-all",
+			"--enable",
+			"gosec",
 			"--disable",
-			"forbidigo,wsl,gci,gofumpt,gochecknoglobals,exhaustivestruct,exhaustruct",
+			"typecheck",
 		},
 	},
 })
