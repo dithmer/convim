@@ -110,4 +110,9 @@ if [ -d /usr/share/fzf ]; then
 	source /usr/share/fzf/completion.bash
 fi
 
+# add zoxide if installed
+if command -v zoxide &>/dev/null; then
+    eval "$(zoxide init bash)"
+fi
+
 neofetch

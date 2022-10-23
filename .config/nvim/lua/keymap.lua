@@ -117,4 +117,4 @@ vim.keymap.set("n", "<leader>x", function()
 end, { noremap = true })
 
 -- toggleterm
-vim.keymap.set("n", "<leader>sh", ":ToggleTerm<cr>", { noremap = true })
+vim.keymap.set("n", "<leader>sh", ":ToggleTerm direction=float<cr>", { noremap = true })
