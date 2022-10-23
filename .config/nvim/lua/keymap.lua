@@ -1,5 +1,6 @@
 -- remap esc to jk
 vim.keymap.set("i", "jk", "<esc>", { noremap = true })
+vim.keymap.set("v", "jk", "<esc>", { noremap = true })
 
 -- save, quit, hard quit
 vim.keymap.set("n", "<leader>q", ":q<cr>", { noremap = true })

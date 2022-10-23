@@ -29,7 +29,7 @@ vim.g.mapleader = ","
 vim.opt.termguicolors = true
 vim.opt.showmatch = true
 vim.opt.ignorecase = true
-vim.opt.hlsearch = true
+vim.opt.hlsearch = false
 vim.opt.incsearch = true
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
@@ -48,6 +48,7 @@ vim.opt.completeopt = { "menu", "menuone", "noselect" }
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldlevel = 99
+vim.opt.wrap = false
 
 vim.opt.background = "dark"
 
