@@ -2,6 +2,9 @@
 vim.keymap.set("i", "jk", "<esc>", { noremap = true })
 vim.keymap.set("v", "jk", "<esc>", { noremap = true })
 
+-- no yank on x
+vim.keymap.set("n", "x", '"_x', { noremap = true })
+
 -- save, quit, hard quit
 vim.keymap.set("n", "<leader>q", ":q<cr>", { noremap = true })
 vim.keymap.set("n", "<leader>Q", ":q!<cr>", { noremap = true })
