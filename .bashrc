@@ -90,6 +90,7 @@ alias convim='/usr/bin/git --git-dir=$HOME/.convim/ --work-tree=$HOME'
 if [[ "$OS" == "Arch Linux" ]]; then
 	alias pinstall='yay -Slq | fzf --multi --preview '\''yay -Si {1}'\'' | xargs -re yay --noconfirm -S'
 	alias pupdate='yay'
+    alias plist='yay -Qqe'
 elif [[ "$OS" == "Ubuntu" ]]; then
 	alias pinstall="apt-cache dump | grep ^Package: | cut -d\" \" -f2 | fzf --multi --preview 'apt-cache show {1}' --preview-window=up | xargs -re sudo apt-get install -y"
 	alias pupdate='sudo apt update && sudo apt full-upgrade'
