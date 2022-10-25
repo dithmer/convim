@@ -77,6 +77,8 @@ vim.keymap.set("n", "<leader>fx", telescope_builtin.symbols, { noremap = true })
 
 -- LSP
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, { noremap = true })
+vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { noremap = true })
+vim.keymap.set("n", "gr", vim.lsp.buf.references, { noremap = true })
 vim.keymap.set("n", "K", vim.lsp.buf.hover, { noremap = true })
 vim.keymap.set("n", "<space>ff", vim.lsp.buf.format, { noremap = true })
 vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, { noremap = true })
