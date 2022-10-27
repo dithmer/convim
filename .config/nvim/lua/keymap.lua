@@ -1,6 +1,5 @@
 -- remap esc to ctrl-c
-vim.keymap.set("i", "<c-c>", "<esc>", { noremap = true })
-vim.keymap.set("v", "<c-c>", "<esc>", { noremap = true })
+vim.keymap.set("i", "jk", "<esc>", { noremap = true })
 
 -- no yank on x
 vim.keymap.set("n", "x", '"_x', { noremap = true })

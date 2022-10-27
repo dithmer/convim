@@ -46,8 +46,9 @@ return require("packer").startup(function(use)
 	use({ "leoluz/nvim-dap-go", requires = { "mfussenegger/nvim-dap" } })
 
 	use({ "onsails/lspkind.nvim" })
-	use({ "github/copilot.vim" })
+	-- use({ "github/copilot.vim" })
 	use({ "folke/neodev.nvim" })
+	use({ "zbirenbaum/copilot.lua" })
 	use({ "neovim/nvim-lspconfig" })
 	use({ "jose-elias-alvarez/null-ls.nvim" })
 
