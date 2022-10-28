@@ -116,4 +116,9 @@ if command -v zoxide &>/dev/null; then
     eval "$(zoxide init bash)"
 fi
 
+# add gem binaries to PATH
+if command -v gem &>/dev/null; then
+    export PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
+fi
+
 neofetch
