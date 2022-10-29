@@ -6,6 +6,6 @@ vim.defer_fn(function()
 	})
 	-- copilot
 	local copilot_suggestion = require("copilot.suggestion")
-	vim.keymap.set("i", "<c-c>", copilot_suggestion.next, { noremap = true })
-	vim.keymap.set("i", "<tab>", copilot_suggestion.accept, { noremap = true })
+	vim.keymap.set("i", "<c-n>", copilot_suggestion.next, { noremap = true })
+	vim.keymap.set("i", "<c-c>", copilot_suggestion.accept, { noremap = true })
 end, 100)
