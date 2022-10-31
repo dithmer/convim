@@ -18,6 +18,12 @@ floating_modifier $mod
 bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 
+bindsym $mod+u exec --no-startup-id i3lock
+
+for_window [class="Firefox"] move to workspace $ws2
+for_window [class=".*Discord.*"] move to workspace $ws8
+for_window [class="Spotify"] move to workspace $ws7
+
 bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 bindsym $mod+c exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
 
