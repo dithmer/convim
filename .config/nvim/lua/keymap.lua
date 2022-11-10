@@ -113,7 +113,7 @@ vim.keymap.set("n", "<leader>dr", require("dap").restart, { noremap = true })
 vim.keymap.set("n", "<leader>di", require("dap").step_into, { noremap = true })
 vim.keymap.set("n", "<leader>do", require("dap").step_over, { noremap = true })
 vim.keymap.set("n", "<leader>du", require("dap").step_out, { noremap = true })
-vim.keymap.set("n", "<leader>ds", require("dap").stop, { noremap = true })
+vim.keymap.set("n", "<leader>ds", require("dap").close, { noremap = true })
 
 -- dapui
 vim.keymap.set("n", "<leader>dur", require("dap").repl.toggle, { noremap = true })
