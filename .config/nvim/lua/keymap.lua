@@ -109,12 +109,14 @@ vim.keymap.set("n", "<leader>sc", require("reload").current_file, { noremap = tr
 -- dap
 vim.keymap.set("n", "<leader>db", require("dap").toggle_breakpoint, { noremap = true })
 vim.keymap.set("n", "<leader>dc", require("dap").continue, { noremap = true })
+vim.keymap.set("n", "<leader>dr", require("dap").restart, { noremap = true })
 vim.keymap.set("n", "<leader>di", require("dap").step_into, { noremap = true })
 vim.keymap.set("n", "<leader>do", require("dap").step_over, { noremap = true })
-vim.keymap.set("n", "<leader>dr", require("dap").repl.toggle, { noremap = true })
+vim.keymap.set("n", "<leader>du", require("dap").step_out, { noremap = true })
 vim.keymap.set("n", "<leader>ds", require("dap").stop, { noremap = true })
 
 -- dapui
+vim.keymap.set("n", "<leader>dur", require("dap").repl.toggle, { noremap = true })
 vim.keymap.set("n", "<leader>dui", require("dapui").toggle, { noremap = true })
 
 -- execute current luafile

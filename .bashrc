@@ -96,7 +96,11 @@ elif [[ "$OS" == "Ubuntu" ]]; then
 	alias pupdate='sudo apt update && sudo apt full-upgrade'
 fi
 
-alias cat='bat'
+if command -v bat >/dev/null 2>&1; then
+    alias cat='bat'
+elif command -v batcat >/dev/null 2>&1; then
+    alias cat='batcat'
+fi
 
 export PATH="$HOME/.local/bin:$PATH"
 
