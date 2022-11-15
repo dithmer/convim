@@ -40,7 +40,7 @@ fi
 export OSH="$HOME/.oh-my-bash"
 
 #  OSH_THEME="font"
-export OSH_THEME="powerline"
+export OSH_THEME="bakke"
 
 export UPDATE_OSH_DAYS=1
 

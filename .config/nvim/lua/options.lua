@@ -26,6 +26,7 @@ end
 
 vim.g.mapleader = ","
 
+vim.opt.mouse = ""
 vim.opt.termguicolors = true
 vim.opt.showmatch = true
 vim.opt.ignorecase = true
