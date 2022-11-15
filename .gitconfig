@@ -22,3 +22,5 @@
     a = add
     oops = commit --amend --no-edit
     undo = reset --soft HEAD~1
+[init]
+	defaultBranch = main
