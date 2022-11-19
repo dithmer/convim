@@ -75,6 +75,6 @@ nvim_lsp.bashls.setup({
 
 nvim_lsp.rust_analyzer.setup({})
 
-nvim_lsp.jedi_language_server.setup({
-	capabilities = capabilities,
+nvim_lsp.pyright.setup({
+    capabilities = capabilities,
 })
