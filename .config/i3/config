@@ -6,6 +6,7 @@ gaps outer 10
 smart_gaps inverse_outer
 smart_borders on
 
+exec --no-startup-id "echo 0 | sudo tee /sys/module/hid_apple/parameters/fnmode"
 exec --no-startup-id "$HOME/.screenlayout/2_monitor.sh"
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id pulseaudio
