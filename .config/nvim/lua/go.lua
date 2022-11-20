@@ -74,17 +74,11 @@ function M.RunTests()
 						user_data = {},
 					})
 				else
-					vim.api.nvim_buf_set_extmark(
-						0,
-						Go_Test_Namespace,
-						Tests[test.Test].Line,
-						0,
-						{
-							virt_text = { { "✓ Test succeeded" } },
-							hl_mode = "combine",
-							hl_group = "DiagnosticVirtualTextHint",
-						}
-					)
+					vim.api.nvim_buf_set_extmark(0, Go_Test_Namespace, Tests[test.Test].Line, 0, {
+						virt_text = { { "✓ Test succeeded" } },
+						hl_mode = "combine",
+						hl_group = "DiagnosticVirtualTextHint",
+					})
 				end
 			end
 

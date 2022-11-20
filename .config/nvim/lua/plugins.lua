@@ -20,7 +20,7 @@ return require("packer").startup(function(use)
 	use({ "ellisonleao/gruvbox.nvim" })
 	use({ "folke/tokyonight.nvim" })
 
-    use({ "vimwiki/vimwiki" })
+	use({ "vimwiki/vimwiki" })
 
 	use({ "nathom/filetype.nvim" })
 	use({ "aserowy/tmux.nvim" })
