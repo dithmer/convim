@@ -39,6 +39,7 @@ vim.keymap.set("n", "<leader>ps", ":PackerSync<cr>", { noremap = true })
 -- toggle NvimTree
 vim.keymap.set("n", "<leader>o", ":NvimTreeToggle<cr>", { noremap = true })
 
+
 -- harpoon
 vim.keymap.set("n", "<leader>hh", ":lua require('harpoon.ui').toggle_quick_menu()<cr>", { noremap = true })
 vim.keymap.set("n", "<leader><leader>h", function()
@@ -131,3 +132,6 @@ end, { noremap = true })
 
 -- toggleterm
 vim.keymap.set("n", "<leader>sh", ":ToggleTerm direction=float<cr>", { noremap = true })
+
+-- add user command to open lazygit in toggleterm
+vim.cmd("command! -nargs=0 G :TermExec direction=float cmd='lazygit'<cr>")
