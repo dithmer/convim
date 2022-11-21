@@ -1,3 +1,6 @@
+require("mason").setup()
+require("mason-lspconfig").setup()
+
 -- lsp setup
 --  local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -53,7 +56,6 @@ nvim_lsp.tailwindcss.setup({
 require("neodev").setup({})
 nvim_lsp.sumneko_lua.setup({
 	capabilities = capabilities,
-	cmd = { "/opt/lua-language-server/bin/lua-language-server" },
 })
 
 vim.cmd([[autocmd BufRead,BufNewFile *.tf,*.tfvars set filetype=terraform]])
@@ -63,17 +65,13 @@ nvim_lsp.terraformls.setup({
 	cmd = { "terraform-ls", "serve" },
 })
 
-nvim_lsp.tflint.setup({
-	capabilities = capabilities,
-	filetypes = { "terraform", "tf" },
-	cmd = { "tflint", "--langserver" },
-})
-
 nvim_lsp.bashls.setup({
 	capabilities = capabilities,
 })
 
-nvim_lsp.rust_analyzer.setup({})
+nvim_lsp.rust_analyzer.setup({
+    capabilities = capabilities,
+})
 
 nvim_lsp.pyright.setup({
 	capabilities = capabilities,
