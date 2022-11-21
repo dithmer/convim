@@ -16,6 +16,9 @@ vim.cmd([[packadd packer.nvim]])
 return require("packer").startup(function(use)
 	use({ "wbthomason/packer.nvim" })
 
+	use({ "gnikdroy/projections.nvim", requires = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" } })
+	use({ "Pocco81/auto-save.nvim" })
+
 	use({ "dracula/vim", as = "dracula" })
 	use({ "ellisonleao/gruvbox.nvim" })
 	use({ "folke/tokyonight.nvim" })
@@ -47,7 +50,6 @@ return require("packer").startup(function(use)
 	use({ "leoluz/nvim-dap-go", requires = { "mfussenegger/nvim-dap" } })
 
 	use({ "onsails/lspkind.nvim" })
-	-- use({ "github/copilot.vim" })
 	use({ "folke/neodev.nvim" })
 	use({ "zbirenbaum/copilot.lua" })
 	use({ "neovim/nvim-lspconfig" })

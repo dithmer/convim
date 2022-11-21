@@ -6,7 +6,7 @@ vim.keymap.set("n", "x", '"_x', { noremap = true })
 vim.keymap.set("v", "<c-b>", "<c-a>", { noremap = true })
 
 -- save, quit, hard quit
-vim.keymap.set("n", "<leader>q", ":q<cr>", { noremap = true })
+vim.keymap.set("n", "<leader>q", ":qa<cr>", { noremap = true })
 vim.keymap.set("n", "<leader>Q", ":q!<cr>", { noremap = true })
 vim.keymap.set("n", "<leader>w", ":w<cr>", { noremap = true })
 vim.keymap.set("n", "<leader>W", ":w !sudo tee %<cr>", { noremap = true })
@@ -73,6 +73,9 @@ vim.keymap.set("n", "<leader>fs", telescope_builtin.lsp_document_symbols, { nore
 vim.keymap.set("n", "<leader>fw", telescope_builtin.lsp_dynamic_workspace_symbols, { noremap = true })
 vim.keymap.set("n", "<leader>fc", telescope_builtin.command_history, { noremap = true })
 vim.keymap.set("n", "<leader>fx", telescope_builtin.symbols, { noremap = true })
+vim.keymap.set("n", "<leader>fp", function()
+	vim.cmd("Telescope projections")
+end)
 
 -- LSP
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, { noremap = true })
