@@ -70,7 +70,7 @@ nvim_lsp.bashls.setup({
 })
 
 nvim_lsp.rust_analyzer.setup({
-    capabilities = capabilities,
+	capabilities = capabilities,
 })
 
 nvim_lsp.pyright.setup({

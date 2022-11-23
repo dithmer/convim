@@ -8,12 +8,12 @@ require("nvim-tree").setup({
 	respect_buf_cwd = true,
 	hijack_cursor = true,
 	open_on_tab = true,
-    view = {
-        float = {
-            enable = true,
-            open_win_config = {
-                relative = "cursor",
-            }
-        }
-    }
+	view = {
+		float = {
+			enable = true,
+			open_win_config = {
+				relative = "cursor",
+			},
+		},
+	},
 })

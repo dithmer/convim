@@ -5,6 +5,9 @@ vim.keymap.set("i", "jk", "<esc>", { noremap = true })
 vim.keymap.set("n", "x", '"_x', { noremap = true })
 vim.keymap.set("v", "<c-b>", "<c-a>", { noremap = true })
 
+-- swap splits
+vim.keymap.set("n", "<leader>S", ":SwapSplit<CR>", { noremap = true })
+
 -- save, quit, hard quit
 vim.keymap.set("n", "<leader>q", ":qa<cr>", { noremap = true })
 vim.keymap.set("n", "<leader>Q", ":q!<cr>", { noremap = true })
@@ -38,7 +41,6 @@ vim.keymap.set("n", "<leader>ps", ":PackerSync<cr>", { noremap = true })
 
 -- toggle NvimTree
 vim.keymap.set("n", "<leader>o", ":NvimTreeToggle<cr>", { noremap = true })
-
 
 -- harpoon
 vim.keymap.set("n", "<leader>hh", ":lua require('harpoon.ui').toggle_quick_menu()<cr>", { noremap = true })
@@ -115,11 +117,11 @@ vim.keymap.set("n", "<leader>db", require("dap").toggle_breakpoint, { noremap = 
 vim.keymap.set("n", "<leader>dB", function()
 	require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
 end, { noremap = true })
-vim.keymap.set("n", "<F5>", require("dap").continue, { noremap = true })
-vim.keymap.set("n", "<F8>", require("dap").step_into, { noremap = true })
-vim.keymap.set("n", "<F9>", require("dap").step_over, { noremap = true })
-vim.keymap.set("n", "<F7>", require("dap").step_out, { noremap = true })
-vim.keymap.set("n", "<F10>", require("dap").close, { noremap = true })
+vim.keymap.set("n", "<leader>dc", require("dap").continue, { noremap = true })
+vim.keymap.set("n", "<leader>di", require("dap").step_into, { noremap = true })
+vim.keymap.set("n", "<leader>do", require("dap").step_over, { noremap = true })
+vim.keymap.set("n", "<leader>du", require("dap").step_out, { noremap = true })
+vim.keymap.set("n", "<leader>ds", require("dap").close, { noremap = true })
 
 -- dapui
 vim.keymap.set("n", "<leader>dur", require("dap").repl.toggle, { noremap = true })

@@ -18,6 +18,7 @@ return require("packer").startup(function(use)
 
 	use({ "gnikdroy/projections.nvim", requires = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" } })
 	use({ "Pocco81/auto-save.nvim" })
+	use({ "xorid/swap-split.nvim" })
 
 	use({ "dracula/vim", as = "dracula" })
 	use({ "ellisonleao/gruvbox.nvim" })
@@ -54,8 +55,8 @@ return require("packer").startup(function(use)
 	use({ "zbirenbaum/copilot.lua" })
 
 	use({
-        "williamboman/mason.nvim",
-        "williamboman/mason-lspconfig.nvim",
+		"williamboman/mason.nvim",
+		"williamboman/mason-lspconfig.nvim",
 		"neovim/nvim-lspconfig",
 		"jose-elias-alvarez/null-ls.nvim",
 	})
