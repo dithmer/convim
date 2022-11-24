@@ -1,0 +1,32 @@
+#!/bin/bash
+workspaces_file="$HOME/.config/projections/workspaces"
+
+if ! [ -f "$workspaces_file" ]; then
+	echo "No workspaces file found at $workspaces_file"
+	echo "Wanna create one? (y/n)"
+	read -r answer
+	if [ "$answer" = "y" ]; then
+		echo "Creating workspaces file at $workspaces_file"
+		mkdir -p "$HOME/.config/projections"
+		touch "$workspaces_file"
+		echo "Wanna edit it now? (y/n)"
+		read -r answer
+		if [ "$answer" = "y" ]; then
+			$EDITOR "$workspaces_file"
+		fi
+	else
+		echo "Exiting..."
+		exit 1
+	fi
+fi
+
+projects=()
+
+while read -r workspace; do
+	workspace="${workspace/#\~/$HOME}"
+	while read -r project; do
+		projects+=("$project")
+	done < <(find "$workspace" -mindepth 1 -maxdepth 1 -type d)
+done <"$workspaces_file"
+
+cd "$(for project in "${projects[@]}"; do echo "$project"; done | fzf)"

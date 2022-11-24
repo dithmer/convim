@@ -6,7 +6,7 @@ vim.keymap.set("n", "x", '"_x', { noremap = true })
 vim.keymap.set("v", "<c-b>", "<c-a>", { noremap = true })
 
 -- swap splits
-vim.keymap.set("n", "<leader>S", ":SwapSplit<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>ss", ":SwapSplit<cr>", { noremap = true })
 
 -- save, quit, hard quit
 vim.keymap.set("n", "<leader>q", ":qa<cr>", { noremap = true })
@@ -17,6 +17,13 @@ vim.keymap.set("n", "<leader>W", ":w !sudo tee %<cr>", { noremap = true })
 -- easier splits
 vim.keymap.set("n", "s[", ":belowright split<cr>", { silent = true, noremap = true })
 vim.keymap.set("n", "s]", ":belowright vsplit<cr>", { silent = true, noremap = true })
+
+-- resize splits with alt + hjkl
+vim.keymap.set("n", "<a-j>", ":resize -2<cr>", { silent = true, noremap = true })
+vim.keymap.set("n", "<a-k>", ":resize +2<cr>", { silent = true, noremap = true })
+vim.keymap.set("n", "<a-h>", ":vertical resize -5<cr>", { silent = true, noremap = true })
+vim.keymap.set("n", "<a-l>", ":vertical resize +5<cr>", { silent = true, noremap = true })
+
 
 -- split navigation shortcuts
 vim.keymap.set("n", "<C-h>", "<C-w>h", { noremap = true })

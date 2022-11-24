@@ -102,6 +102,8 @@ elif command -v batcat >/dev/null 2>&1; then
     alias cat='batcat'
 fi
 
+alias p="source \$HOME/.local/bin/projection"
+
 export PATH="$HOME/.local/bin:$PATH"
 
 # Add $HOME/go/bin to PATH if go is installed
