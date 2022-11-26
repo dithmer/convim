@@ -1,7 +1,12 @@
-require("options")
-require("plugins")
-require("keymap")
-require("lsp")
+local modules = {
+	"options",
+	"plugins",
+	"keymap",
+	"lsp",
+	"go",
+	"fun",
+}
 
-require("go")
-require("fun")
+for _, module in ipairs(modules) do
+	require(module)
+end
