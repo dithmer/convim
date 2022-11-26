@@ -49,13 +49,13 @@ vim.keymap.set("n", "<leader>ps", ":PackerSync<cr>", { noremap = true })
 vim.keymap.set("n", "<leader>o", ":NvimTreeToggle<cr>", { noremap = true })
 
 -- harpoon
-vim.keymap.set("n", "<leader>hh", ":lua require('harpoon.ui').toggle_quick_menu()<cr>", { noremap = true })
-vim.keymap.set("n", "<leader><leader>h", function()
+vim.keymap.set("n", "<leader>fa", ":lua require('harpoon.ui').toggle_quick_menu()<cr>", { noremap = true })
+vim.keymap.set("n", "<leader><leader>f", function()
 	require("harpoon.mark").add_file()
 end, { noremap = true })
 
 for i = 1, 4 do
-	vim.keymap.set("n", "<leader>h" .. i, function()
+	vim.keymap.set("n", "<leader>f" .. i, function()
 		require("harpoon.ui").nav_file(i)
 	end, { noremap = true })
 end
