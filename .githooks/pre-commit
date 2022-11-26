@@ -17,28 +17,26 @@ function error() {
 	echo -e "${RED}❌${NC} - $1"
 }
 
-
 failures=()
 function run() {
-    section="$1"
+	section="$1"
 
-    header "$section"
-    shift
-    "$@" || failures+=("$section")
+	header "$section"
+	shift
+	"$@" || failures+=("$section")
 }
 
 function check_failures() {
-    if [ ${#failures[@]} -eq 0 ]; then
-        success "All checks passed"
-    else
-        echo -e "${#failures[@]} section(s) failed:"
-        for failure in "${failures[@]}"; do
-            error "$failure"
-        done
-        exit 1
-    fi
+	if [ ${#failures[@]} -eq 0 ]; then
+		success "All checks passed"
+	else
+		echo -e "${#failures[@]} section(s) failed:"
+		for failure in "${failures[@]}"; do
+			error "$failure"
+		done
+		exit 1
+	fi
 }
-
 
 cd "$HOME"/.config/nvim || exit
 run "nvim configuration files" stylua --output-format Summary -c -g '**/*.lua' -g '!plugin/packer_compiled.lua' -- .

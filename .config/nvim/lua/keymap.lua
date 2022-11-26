@@ -24,7 +24,6 @@ vim.keymap.set("n", "<a-k>", ":resize +2<cr>", { silent = true, noremap = true }
 vim.keymap.set("n", "<a-h>", ":vertical resize -5<cr>", { silent = true, noremap = true })
 vim.keymap.set("n", "<a-l>", ":vertical resize +5<cr>", { silent = true, noremap = true })
 
-
 -- split navigation shortcuts
 vim.keymap.set("n", "<C-h>", "<C-w>h", { noremap = true })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { noremap = true })
