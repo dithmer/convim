@@ -127,4 +127,9 @@ if command -v gem &>/dev/null; then
     export PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
 fi
 
+if command -v lazygit &>/dev/null; then
+    alias lg="lazygit"
+    alias lzconf="lazygit --git-dir=\$HOME/.convim --work-tree=\$HOME"
+fi
+
 neofetch
