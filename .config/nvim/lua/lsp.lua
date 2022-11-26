@@ -76,3 +76,11 @@ nvim_lsp.rust_analyzer.setup({
 nvim_lsp.pyright.setup({
 	capabilities = capabilities,
 })
+
+nvim_lsp.arduino_language_server.setup({
+	capabilities = capabilities,
+})
+
+nvim_lsp.clangd.setup({
+	capabilities = capabilities,
+})
