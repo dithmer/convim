@@ -1,0 +1,9 @@
+#!/bin/bash
+tracked=$(git --work-tree="$HOME" --git-dir="$HOME/.convim" ls-tree -r main)
+all=$(find -type f -printf "%P\n")
+
+for file in $all; do
+    if ! echo "$tracked" | grep -q "$file"; then
+        echo "$file"
+    fi
+done

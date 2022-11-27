@@ -9,10 +9,9 @@ vim.keymap.set("v", "<c-b>", "<c-a>", { noremap = true })
 vim.keymap.set("n", "<leader>ss", ":SwapSplit<cr>", { noremap = true })
 
 -- save, quit, hard quit
-vim.keymap.set("n", "<leader>q", ":qa<cr>", { noremap = true })
-vim.keymap.set("n", "<leader>Q", ":q!<cr>", { noremap = true })
-vim.keymap.set("n", "<leader>w", ":w<cr>", { noremap = true })
-vim.keymap.set("n", "<leader>W", ":w !sudo tee %<cr>", { noremap = true })
+vim.keymap.set("n", "<leader>q", ":qa<cr>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>Q", ":q!<cr>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>w", ":w<cr>", { noremap = true, silent = true })
 
 -- easier splits
 vim.keymap.set("n", "s[", ":belowright split<cr>", { silent = true, noremap = true })
@@ -93,7 +92,7 @@ vim.keymap.set("n", "gr", vim.lsp.buf.references, { noremap = true })
 vim.keymap.set("n", "K", vim.lsp.buf.hover, { noremap = true })
 vim.keymap.set("n", "<space>ff", vim.lsp.buf.format, { noremap = true })
 vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, { noremap = true })
-vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, { noremap = true })
+vim.keymap.set("n", "ga", vim.lsp.buf.code_action, { noremap = true })
 
 -- diagnostics
 vim.keymap.set("n", "<space>dn", vim.diagnostic.goto_next, { noremap = true })

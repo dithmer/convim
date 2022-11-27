@@ -77,6 +77,8 @@ return require("packer").startup(function(use)
 	use({ "nvim-telescope/telescope.nvim", tag = "0.1.0" })
 	use({ "nvim-telescope/telescope-symbols.nvim" })
 
+	use({ "stevearc/dressing.nvim" })
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end
