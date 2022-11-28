@@ -26,7 +26,7 @@ nvim_lsp.golangci_lint_ls.setup({
 			"--out-format",
 			"json",
 			"--enable",
-			"gosec",
+			"gosec,revive",
 			"--disable",
 			"typecheck",
 		},
