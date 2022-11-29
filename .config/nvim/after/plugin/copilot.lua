@@ -3,6 +3,9 @@ vim.defer_fn(function()
 		suggestion = {
 			auto_trigger = true,
 		},
+		filetypes = {
+			markdown = true,
+		},
 	})
 	-- copilot
 	local copilot_suggestion = require("copilot.suggestion")
