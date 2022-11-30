@@ -93,11 +93,15 @@ end)
 -- LSP
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, { noremap = true })
 vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { noremap = true })
-vim.keymap.set("n", "gr", vim.lsp.buf.references, { noremap = true })
+vim.keymap.set("n", "gr", ":Telescope lsp_references<cr>", { noremap = true, silent = true })
 vim.keymap.set("n", "K", vim.lsp.buf.hover, { noremap = true })
 vim.keymap.set("n", "<space>ff", vim.lsp.buf.format, { noremap = true })
 vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, { noremap = true })
-vim.keymap.set("n", "ga", vim.lsp.buf.code_action, { noremap = true })
+vim.keymap.set({ "n" }, "ga", vim.lsp.buf.code_action, { noremap = true })
+-- code action on visual selection
+vim.keymap.set({ "v" }, "ga", function()
+	vim.lsp.buf.code_action()
+end, { noremap = true })
 
 -- diagnostics
 vim.keymap.set("n", "<space>dn", vim.diagnostic.goto_next, { noremap = true })
