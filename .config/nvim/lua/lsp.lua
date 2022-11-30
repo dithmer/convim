@@ -11,7 +11,7 @@ nvim_lsp.gopls.setup({
 	settings = {
 		gopls = {
 			env = {
-				GOFLAGS = "-tags=windows,linux,unittest",
+				GOFLAGS = "-tags=windows,linux,unit,integration",
 			},
 		},
 	},
