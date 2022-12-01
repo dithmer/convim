@@ -20,6 +20,8 @@ return require("packer").startup(function(use)
 	use({ "Pocco81/auto-save.nvim" })
 	use({ "xorid/swap-split.nvim" })
 
+	use({ "nyngwang/murmur.lua" })
+
 	use({ "dracula/vim", as = "dracula" })
 	use({ "ellisonleao/gruvbox.nvim" })
 	use({ "folke/tokyonight.nvim" })
