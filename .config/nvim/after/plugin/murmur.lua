@@ -8,7 +8,7 @@ murmur.setup({
 
 vim.api.nvim_create_autocmd("CursorHold", {
 	group = MURMUR_AUGROUP,
-	pattern = "*",
+	pattern = "*.go",
 	callback = function()
 		-- skip when a float-win already exists.
 		if vim.w.cursor_word ~= "" then
