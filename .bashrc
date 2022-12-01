@@ -132,4 +132,8 @@ if command -v lazygit &>/dev/null; then
     alias lzconf="lazygit --git-dir=\$HOME/.convim --work-tree=\$HOME"
 fi
 
+if command -v direnv &>/dev/null; then
+    eval "$(direnv hook bash)"
+fi
+
 neofetch
