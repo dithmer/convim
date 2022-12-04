@@ -21,6 +21,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 
 bindsym $mod+u exec --no-startup-id i3lock
+bindsym $mod+b exec --no-startup-id "$HOME/.local/bin/bookie"
 
 for_window [class="Firefox"] move to workspace $ws2
 for_window [class=".*Discord.*"] move to workspace $ws8
