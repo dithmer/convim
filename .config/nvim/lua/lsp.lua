@@ -79,6 +79,17 @@ nvim_lsp.pyright.setup({
 
 nvim_lsp.arduino_language_server.setup({
 	capabilities = capabilities,
+	cmd = {
+		"arduino-language-server",
+		"-cli-config",
+		os.getenv("HOME") .. "/.arduino15/arduino-cli.yaml",
+		"-fqbn",
+		"arduino:avr:nano",
+		"-cli",
+		"arduino-cli",
+		"-clangd",
+		"clangd",
+	},
 })
 
 nvim_lsp.clangd.setup({
