@@ -50,18 +50,10 @@ legendary.setup({
 			},
 		},
 		{ "<leader>sh", ":ToggleTerm direction=float<cr>", description = "Open floating toggle term" },
+		{ "<leader>ps", ":PackerSync<cr>", desc = "packer sync" },
+		{ "<leader>o", ":NvimTreeToggle<cr>", desc = "toggle NvimTree" },
 	},
 	itemgroups = {
-		{
-			itemgroup = "General",
-			icon = "",
-			description = "General keymaps",
-			keymaps = {
-
-				{ "<leader>ps", ":PackerSync<cr>", desc = "packer sync" },
-				{ "<leader>o", ":NvimTreeToggle<cr>", desc = "toggle NvimTree" },
-			},
-		},
 		{
 			itemgroup = "Splits",
 			icon = "",
