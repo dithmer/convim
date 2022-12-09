@@ -80,6 +80,10 @@ return require("packer").startup(function(use)
 	use({ "nvim-telescope/telescope.nvim", tag = "0.1.0" })
 	use({ "nvim-telescope/telescope-symbols.nvim" })
 
+	use({
+		"mrjones2014/legendary.nvim",
+		requires = "kkharji/sqlite.lua",
+	})
 	use({ "stevearc/dressing.nvim" })
 
 	if packer_bootstrap then

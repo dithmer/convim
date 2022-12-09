@@ -1,7 +1,6 @@
 local modules = {
 	"options",
 	"plugins",
-	"keymap",
 	"lsp",
 	"go",
 	"fun",

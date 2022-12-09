@@ -87,7 +87,4 @@ function M.RunTests()
 	})
 end
 
--- create user command for running tests
-vim.cmd("command! -nargs=0 GoTest lua require('go').RunTests()")
-
 return M
