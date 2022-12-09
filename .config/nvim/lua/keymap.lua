@@ -63,6 +63,8 @@ for i = 1, 4 do
 		require("harpoon.ui").nav_file(i)
 	end, { noremap = true })
 end
+vim.keymap.set("n", "<leader>fn", require("harpoon.ui").nav_next, { noremap = true })
+vim.keymap.set("n", "<leader>fm", require("harpoon.ui").nav_prev, { noremap = true })
 
 -- luasnip
 local ls = require("luasnip")
@@ -135,7 +137,12 @@ vim.keymap.set("n", "<leader>dc", require("dap").continue, { noremap = true })
 vim.keymap.set("n", "<leader>di", require("dap").step_into, { noremap = true })
 vim.keymap.set("n", "<leader>do", require("dap").step_over, { noremap = true })
 vim.keymap.set("n", "<leader>du", require("dap").step_out, { noremap = true })
-vim.keymap.set("n", "<leader>ds", require("dap").close, { noremap = true })
+vim.keymap.set("n", "<leader>ds", function()
+	vim.diagnostic.show()
+
+	require("dap").close()
+	require("dapui").close()
+end, { noremap = true })
 
 -- dapui
 vim.keymap.set("n", "<leader>dur", require("dap").repl.toggle, { noremap = true })

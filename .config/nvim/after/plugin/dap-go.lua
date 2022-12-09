@@ -1,16 +1,16 @@
-require("dap-go").setup({})
+local dapgo = require("dap-go")
+dapgo.setup({})
 
--- map leader dt to debug test
--- but only in go files
-vim.api.nvim_exec(
-	[[
-augroup dap-go
-  autocmd!
-  autocmd FileType go nmap <silent> <leader>dt <cmd>lua require("dap-go").debug_test()<CR>
-augroup END
-]],
-	false
-)
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+	pattern = { "*.go" },
+	callback = function()
+		vim.keymap.set("n", "<leader>dt", function()
+			if not dapgo.debug_test() then
+				dapgo.debug_last_test()
+			end
+		end, { silent = true })
+	end,
+})
 
 local dap = require("dap")
 table.insert(dap.configurations.go, {
