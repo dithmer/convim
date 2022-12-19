@@ -19,6 +19,7 @@ return require("packer").startup(function(use)
 	use({ "gnikdroy/projections.nvim", requires = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" } })
 	use({ "Pocco81/auto-save.nvim" })
 	use({ "xorid/swap-split.nvim" })
+	use({ "shortcuts/no-neck-pain.nvim", tag = "*" })
 
 	use({ "nyngwang/murmur.lua" })
 
@@ -26,7 +27,7 @@ return require("packer").startup(function(use)
 	use({ "ellisonleao/gruvbox.nvim" })
 	use({ "folke/tokyonight.nvim" })
 
-	use({ "nathom/filetype.nvim" })
+	--use({ "nathom/filetype.nvim" })
 	use({ "aserowy/tmux.nvim" })
 	use({ "akinsho/toggleterm.nvim" })
 
