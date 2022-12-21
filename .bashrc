@@ -136,4 +136,6 @@ if command -v direnv &>/dev/null; then
     eval "$(direnv hook bash)"
 fi
 
+export PATH="$PATH:/home/dithmer/.local/share/neovim/bin"
+
 neofetch

@@ -80,6 +80,15 @@ return require("packer").startup(function(use)
 	use({ "nvim-lua/plenary.nvim" })
 	use({ "nvim-telescope/telescope.nvim", tag = "0.1.0" })
 	use({ "nvim-telescope/telescope-symbols.nvim" })
+	use({
+		"debugloop/telescope-undo.nvim",
+		requires = { "nvim-telescope/telescope.nvim" },
+		config = function()
+			-- TODO play with this
+			require("telescope").load_extension("undo")
+			vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<cr>")
+		end,
+	})
 
 	use({
 		"mrjones2014/legendary.nvim",
