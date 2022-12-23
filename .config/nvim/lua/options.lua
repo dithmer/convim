@@ -54,7 +54,7 @@ vim.opt.wrap = false
 vim.opt.background = "dark"
 
 local colorschmes = { "gruvbox", "tokyonight", "dracula" }
-local colorscheme = colorschmes[2]
+local colorscheme = colorschmes[1]
 local ok, _ = pcall(require, colorscheme)
 if ok then
 	vim.cmd([[colorscheme ]] .. colorscheme)

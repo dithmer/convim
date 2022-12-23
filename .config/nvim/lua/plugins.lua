@@ -16,7 +16,6 @@ vim.cmd([[packadd packer.nvim]])
 return require("packer").startup(function(use)
 	use({ "wbthomason/packer.nvim" })
 
-	use({ "gnikdroy/projections.nvim", requires = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" } })
 	use({ "Pocco81/auto-save.nvim" })
 	use({ "xorid/swap-split.nvim" })
 	use({ "shortcuts/no-neck-pain.nvim", tag = "*" })
@@ -89,6 +88,7 @@ return require("packer").startup(function(use)
 			vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<cr>")
 		end,
 	})
+	use({ "gnikdroy/projections.nvim", requires = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" } })
 
 	use({
 		"mrjones2014/legendary.nvim",
