@@ -6,4 +6,11 @@ require("nvim-treesitter.configs").setup({
 	autotag = {
 		enable = true,
 	},
+	incremental_selection = {
+		enable = true,
+		keymaps = {
+			init_selection = "<space>i", -- set to `false` to disable one of the mappings
+			node_incremental = "<space>i",
+		},
+	},
 })

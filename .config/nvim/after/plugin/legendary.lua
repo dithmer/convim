@@ -52,6 +52,7 @@ legendary.setup({
 		{ "<leader>sh", ":ToggleTerm direction=float<cr>", description = "Open floating toggle term" },
 		{ "<leader>ps", ":PackerSync<cr>", desc = "packer sync" },
 		{ "<leader>o", ":NvimTreeToggle<cr>", desc = "toggle NvimTree" },
+		{ "<C-n>", "<C-\\><C-n>", desc = "leave the input mode in terminal", mode = { "t" } },
 	},
 	itemgroups = {
 		{
