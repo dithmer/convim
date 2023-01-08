@@ -50,6 +50,8 @@ vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldlevel = 99
 vim.opt.wrap = false
+vim.opt.showmode = false
+vim.opt.autochdir = false
 
 vim.opt.background = "dark"
 
