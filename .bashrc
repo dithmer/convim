@@ -90,16 +90,16 @@ alias convim='/usr/bin/git --git-dir=$HOME/.convim/ --work-tree=$HOME'
 if [[ "$OS" == "Arch Linux" ]]; then
 	alias pinstall='yay -Slq | fzf --multi --preview '\''yay -Si {1}'\'' | xargs -re yay --noconfirm -S'
 	alias pupdate='yay'
-    alias plist='yay -Qqe'
+	alias plist='yay -Qqe'
 elif [[ "$OS" == "Ubuntu" ]]; then
 	alias pinstall="apt-cache dump | grep ^Package: | cut -d\" \" -f2 | fzf --multi --preview 'apt-cache show {1}' --preview-window=up | xargs -re sudo apt-get install -y"
 	alias pupdate='sudo apt update && sudo apt full-upgrade'
 fi
 
 if command -v bat >/dev/null 2>&1; then
-    alias cat='bat'
+	alias cat='bat'
 elif command -v batcat >/dev/null 2>&1; then
-    alias cat='batcat'
+	alias cat='batcat'
 fi
 
 alias p="source \$HOME/.local/bin/projection"
@@ -119,23 +119,28 @@ fi
 
 # add zoxide if installed
 if command -v zoxide &>/dev/null; then
-    eval "$(zoxide init bash)"
+	eval "$(zoxide init bash)"
 fi
 
 # add gem binaries to PATH
 if command -v gem &>/dev/null; then
-    export PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
+	export PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
 fi
 
 if command -v lazygit &>/dev/null; then
-    alias lg="lazygit"
-    alias lzconf="lazygit --git-dir=\$HOME/.convim --work-tree=\$HOME"
+	alias lg="lazygit"
+	alias lzconf="lazygit --git-dir=\$HOME/.convim --work-tree=\$HOME"
 fi
 
 if command -v direnv &>/dev/null; then
-    eval "$(direnv hook bash)"
+	eval "$(direnv hook bash)"
 fi
 
 export PATH="$PATH:/home/dithmer/.local/share/neovim/bin"
+
+# add cargo binaries to PATH
+if command -v cargo &>/dev/null; then
+	export PATH="$PATH:/home/dithmer/.cargo/bin"
+fi
 
 neofetch
