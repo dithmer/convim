@@ -136,16 +136,21 @@ if command -v direnv &>/dev/null; then
 	eval "$(direnv hook bash)"
 fi
 
-export PATH="$PATH:/home/dithmer/.local/share/neovim/bin"
+export PATH="$PATH:$HOME/.local/share/neovim/bin"
 
 # add cargo binaries to PATH
 if command -v cargo &>/dev/null; then
-	export PATH="$PATH:/home/dithmer/.cargo/bin"
+	export PATH="$PATH:$HOME/.cargo/bin"
 fi
 
 # use nvim nightly by bob on startup
 if command -v bob &>/dev/null; then
-	bob use nightly
+	updated_file="$HOME/.nvim_updated"
+
+	if ! find "$updated_file" -mtime +1 -type f; then
+		bob use nightly
+		touch "$updated_file"
+	fi
 fi
 
 neofetch
