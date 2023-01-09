@@ -143,4 +143,9 @@ if command -v cargo &>/dev/null; then
 	export PATH="$PATH:/home/dithmer/.cargo/bin"
 fi
 
+# use nvim nightly by bob on startup
+if command -v bob &>/dev/null; then
+	bob use nightly
+fi
+
 neofetch
