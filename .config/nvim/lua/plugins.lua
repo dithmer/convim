@@ -26,7 +26,6 @@ return require("packer").startup(function(use)
 	use({ "ellisonleao/gruvbox.nvim" })
 	use({ "folke/tokyonight.nvim" })
 
-	--use({ "nathom/filetype.nvim" })
 	use({ "aserowy/tmux.nvim" })
 	use({ "akinsho/toggleterm.nvim" })
 
@@ -89,6 +88,8 @@ return require("packer").startup(function(use)
 		end,
 	})
 	use({ "gnikdroy/projections.nvim", requires = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" } })
+
+	use({ "nvim-telescope/telescope-file-browser.nvim", requires = { "nvim-telescope/telescope.nvim" } })
 
 	use({
 		"mrjones2014/legendary.nvim",

@@ -4,3 +4,5 @@ telescope.setup({
 		file_ignore_patterns = { ".git" },
 	},
 })
+
+require("telescope").load_extension("file_browser")
