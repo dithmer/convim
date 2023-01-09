@@ -12,6 +12,16 @@ legendary.setup({
 		{ "<tab><tab>", legendary.find, mode = { "n", "v" } },
 		{ "jk", "<esc>", description = "jk to escape", hide = true, mode = { "i" } },
 		{ "x", '"_x', description = "no yank on x", hide = true },
+		{ "<C-d>", "<C-d>zz", description = "scroll down", hide = true },
+		{ "<C-u>", "<C-u>zz", description = "scroll up", hide = true },
+		{ "J", ":m '>+1<CR>gv=gv", description = "move line down", hide = true, mode = { "v" } },
+		{ "K", ":m '<-2<CR>gv=gv", description = "move line up", hide = true, mode = { "v" } },
+		{ "<leader>rl", ":windo e<cr>", desc = "Reload all windows" },
+		{ "<leader>q", ":q<cr>", description = "Close buffer" },
+		{ "Q", ":qa<cr>", description = "Close all buffers/neovim" },
+		{ "<leader>w", ":w<cr>", description = "Save file" },
+		{ "n", "nzzzv", description = "center after search", hide = true, mode = { "n" } },
+		{ "N", "Nzzzv", description = "center after search backwards", hide = true, mode = { "n" } },
 		{
 			"<C-k>",
 			function()
@@ -23,10 +33,6 @@ legendary.setup({
 			hide = true,
 			mode = { "i" },
 		},
-		{ "<leader>rl", ":windo e<cr>", desc = "Reload all windows" },
-		{ "<leader>q", ":q<cr>", description = "Close buffer" },
-		{ "Q", ":qa<cr>", description = "Close all buffers/neovim" },
-		{ "<leader>w", ":w<cr>", description = "Save file" },
 		{
 			"<leader>/",
 			{ x = commented.commented, n = commented.commented_line },
