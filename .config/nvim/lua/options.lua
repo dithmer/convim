@@ -52,6 +52,7 @@ vim.opt.foldlevel = 99
 vim.opt.wrap = false
 vim.opt.showmode = false
 vim.opt.autochdir = false
+vim.opt.sessionoptions:append("localoptions")
 
 vim.opt.background = "dark"
 

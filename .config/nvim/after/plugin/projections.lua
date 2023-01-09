@@ -12,11 +12,6 @@ projections.setup({
 	patterns = {
 		".git",
 	},
-	restore_hooks = {
-		post = function()
-			vim.cmd([[windo e]])
-		end,
-	},
 })
 
 local ok, telescope = pcall(require, "telescope")
