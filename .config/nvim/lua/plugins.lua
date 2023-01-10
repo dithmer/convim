@@ -24,7 +24,6 @@ return require("packer").startup(function(use)
 
 	use({ "dracula/vim", as = "dracula" })
 	use({ "ellisonleao/gruvbox.nvim" })
-	use({ "folke/tokyonight.nvim" })
 
 	use({ "aserowy/tmux.nvim" })
 	use({ "akinsho/toggleterm.nvim" })

@@ -56,7 +56,7 @@ vim.opt.sessionoptions:append("localoptions")
 
 vim.opt.background = "dark"
 
-local colorschmes = { "gruvbox", "tokyonight", "dracula" }
+local colorschmes = { "gruvbox", "dracula" }
 local colorscheme = colorschmes[1]
 local ok, _ = pcall(require, colorscheme)
 if ok then
